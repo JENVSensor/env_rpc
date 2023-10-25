@@ -12,7 +12,7 @@ from mac_address import get_mac_address
 from ipv4_screen import Ipv4Screen
 
 import sys
-######
+
 # 나중에 링크 풀어줘야한다.
 from uart_data_thread import UartDataThread
 
