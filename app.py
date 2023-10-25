@@ -12,10 +12,10 @@ from mac_address import get_mac_address
 from ipv4_screen import Ipv4Screen
 
 import sys
-
+# 여기서 수정한 것이 git 한다.
 # 나중에 링크 풀어줘야한다.
 from uart_data_thread import UartDataThread
-
+# 제일 처음 수정은 
  
 sys.path.append('/home/orangepi/env_sensor/info')
 # DEVICE_NUM -> 1               # 1 <= Device 30000000    device_info[0]
