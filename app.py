@@ -11,6 +11,8 @@ from ethernet_screen import EthernetScreen
 from mac_address import get_mac_address
 from ipv4_screen import Ipv4Screen
 
+# 202310281654
+
 import sys
 # 여기서 수정한 것이 git 한다.
 # 나중에 링크 풀어줘야한다.
