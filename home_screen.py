@@ -885,25 +885,14 @@ class Home(ttk.Frame):
 
         sleep(10)
 
-        values_at_minus_one = [value for value in sensor_data['values'].values() if value == -1.0]
-        if values_at_minus_one:
-                print('value가 -1.0 인지 확인 : ', values_at_minus_one)
-                    # orangepi 사용자의 모든 python3 프로세스를 종료
+        # 조건문 수정: '=='를 사용하여 비교
+        if sensor_data['values']["S_0_2"] == -1:
+                print('S_0_2의 값이 -1입니다.')
+                # orangepi 사용자의 모든 python3 프로세스를 종료
                 subprocess.run(["pkill", "-u", "orangepi", "-f", "python3"])        
                 # sudo로 스크립트 실행
                 subprocess.Popen(["sudo", "python3", "/home/orangepi/env_sensor/launcher_app.py"])
 
-    # 필요한 추가 작업 수행
-
-        # -1.0 값이 있는지 확인
-        #if any(value == -1.0 for value in sensor_data['values'].values()):
-               
-                #print('value가 -1 인지 확인 : ',value)
-                # 터미널 창을 닫습니다.
-                #subprocess.run(["pkill", "-f", "xfce4-terminal"])
-                #sleep(10)  # 10초간 대기
-                # 새 터미널 창을 엽니다.
-                #subprocess.Popen(["xfce4-terminal"])
         try:
                 self.client.publish('v1/devices/me/telemetry', json.dumps(sensor_data), 1)
                 print('보냈다')
