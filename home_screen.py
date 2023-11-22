@@ -891,7 +891,7 @@ class Home(ttk.Frame):
                 # orangepi 사용자의 모든 python3 프로세스를 종료
                 subprocess.run(["pkill", "-f", "xfce4-terminal"])
                 sleep(3)
-                subprocess.run(["sudo", "/usr/bin/python3", "/home/orangepi/env_sensor/launcher_app.py"])    
+                subprocess.Popen(["sudo", "/usr/bin/python3", "/home/orangepi/env_sensor/launcher_app.py"])    
 
         try:
                 self.client.publish('v1/devices/me/telemetry', json.dumps(sensor_data), 1)
