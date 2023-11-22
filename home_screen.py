@@ -891,18 +891,7 @@ class Home(ttk.Frame):
                 # orangepi 사용자의 모든 python3 프로세스를 종료
                 subprocess.run(["pkill", "-f", "xfce4-terminal"])
                 sleep(3)
-                subprocess.run(["/usr/bin/xfce4-terminal"])    
-
-
-        # -1.0 값이 있는지 확인
-        #if any(value == -1.0 for value in sensor_data['values'].values()):
-               
-                #print('value가 -1 인지 확인 : ',value)
-                # 터미널 창을 닫습니다.
-                #subprocess.run(["pkill", "-f", "xfce4-terminal"])
-                #sleep(10)  # 10초간 대기
-                # 새 터미널 창을 엽니다.
-                #subprocess.Popen(["xfce4-terminal"])
+                subprocess.run(["sudo", "python3", "/home/orangepi/env_sensor/launcher_app.py"])    
 
         try:
                 self.client.publish('v1/devices/me/telemetry', json.dumps(sensor_data), 1)
