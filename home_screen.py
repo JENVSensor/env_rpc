@@ -9,6 +9,7 @@ from wifi_func import get_current_connection_state
 import paho.mqtt.client as mqtt
 import os
 import json
+import subprocess
 import math
 from sensor_list import SENSOR_DICT
 from device_list import device_info
@@ -882,14 +883,13 @@ class Home(ttk.Frame):
         }
         print(sensor_data)
 
-                # -1 값이 있는지 확인
-        if any(value == -1 for value in sensor_data['values'].values()):
+        # -1.0 값이 있는지 확인
+        if any(value == -1.0 for value in sensor_data['values'].values()):
                 # 터미널 창을 닫습니다.
-                os.system("pkill -f 'xfce4-terminal'")
-                sleep(3)  # 'time.' 없이 'sleep' 호출
+                subprocess.run(["pkill", "-f", "xfce4-terminal"])
+                sleep(10)  # 10초간 대기
                 # 새 터미널 창을 엽니다.
-                os.system("xfce4-terminal &")
-
+                subprocess.Popen(["xfce4-terminal"])
         try:
                 self.client.publish('v1/devices/me/telemetry', json.dumps(sensor_data), 1)
                 print('보냈다')
