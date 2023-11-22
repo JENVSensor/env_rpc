@@ -886,7 +886,10 @@ class Home(ttk.Frame):
 
         values_at_minus_one = [value for value in sensor_data['values'].values() if value == -1.0]
         if values_at_minus_one:
-             print('value가 -1.0 인지 확인 : ', values_at_minus_one)
+                print('value가 -1.0 인지 확인 : ', values_at_minus_one)
+                # sudo로 스크립트 실행
+                subprocess.Popen(["sudo", "python3", "/home/orangepi/env_sensor/launcher_app.py"])
+
     # 필요한 추가 작업 수행
 
         # -1.0 값이 있는지 확인
