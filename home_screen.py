@@ -15,7 +15,7 @@ from sensor_list import SENSOR_DICT
 from device_list import device_info
 from VERSION_INFO import CURRENT_VERSION
 from element_screen import Element
-
+from time import sleep
 
 THINGSBOARD_HOST = "210.117.143.37"
 # ACCESS_TOKEN='51ZFhNEWFXLi4pW758Gy'
@@ -888,8 +888,8 @@ class Home(ttk.Frame):
         values_at_minus_one = [value for value in sensor_data['values'].values() if value == -1.0]
         if values_at_minus_one:
                 print('value가 -1.0 인지 확인 : ', values_at_minus_one)
-                # orangepi 사용자의 모든 python3 프로세스를 종료
-                subprocess.run(["pkill", "-u", "orangepi", "-f", "python3"])  
+                    # orangepi 사용자의 모든 python3 프로세스를 종료
+                subprocess.run(["pkill", "-u", "orangepi", "-f", "python3"])        
                 # sudo로 스크립트 실행
                 subprocess.Popen(["sudo", "python3", "/home/orangepi/env_sensor/launcher_app.py"])
 
