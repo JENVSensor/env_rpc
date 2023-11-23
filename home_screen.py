@@ -883,10 +883,9 @@ class Home(ttk.Frame):
         print("sensor_data4 : ",sensor_data)
 
         sleep(5)
-        print("sensor_data5 : ",sensor_data)
         if any(key != "S_0_7" and value == -1 for key, value in sensor_data['values'].items()):
                 print('센서 데이터에 -1 값이 포함되어 있어서 다시 측정 중 입니다.')
-
+                self.after(5000, self.send_mqtt_data)  # 5초 후에 send_mqtt_data 함수를 다시 호출합니다.
         else:
                 try:
                         print("sensor_data : ",sensor_data)
