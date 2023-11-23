@@ -859,26 +859,26 @@ class Home(ttk.Frame):
         ts = ct.timestamp()
         ts = math.floor(ts*1000)
         sensor_data = {
-        'ts': ts,
-        'values':{
-                "S_0_0":float(self.CH2O),
-                "S_0_1":int(self.PM25),
-                "S_0_2":int(self.PM10),
-                "S_0_3":float(self.TVOC),
-                "S_0_4":float(self.CO2),
-                "S_0_5":float(self.temperature),
-                "S_0_6":float(self.humidity),
-                "S_0_7":float(self.Rn),
-                "S_0_8":float(self.SOUND),
-                "S_0_9":float(self.CO),
-                "S_0_10":float(self.Sm),
-                "S_0_11":float(self.NO2),
-                "S_0_12":float(self.H2S),
-                "S_0_13":float(self.NH3),
-                "S_0_14":float(self.LIGHT),
-                "S_0_15":float(self.O3),
-                "S_0_16":int(self.PM1),
-                "ver":CURRENT_VERSION,
+                'ts': ts,
+                'values':{
+                        "S_0_0":float(self.CH2O),
+                        "S_0_1":int(self.PM25),
+                        "S_0_2":int(self.PM10),
+                        "S_0_3":float(self.TVOC),
+                        "S_0_4":float(self.CO2),
+                        "S_0_5":float(self.temperature),
+                        "S_0_6":float(self.humidity),
+                        "S_0_7":float(self.Rn),
+                        "S_0_8":float(self.SOUND),
+                        "S_0_9":float(self.CO),
+                        "S_0_10":float(self.Sm),
+                        "S_0_11":float(self.NO2),
+                        "S_0_12":float(self.H2S),
+                        "S_0_13":float(self.NH3),
+                        "S_0_14":float(self.LIGHT),
+                        "S_0_15":float(self.O3),
+                        "S_0_16":int(self.PM1),
+                        "ver":CURRENT_VERSION,
                 }
         }
 
