@@ -859,32 +859,29 @@ class Home(ttk.Frame):
         ts = ct.timestamp()
         ts = math.floor(ts*1000)
         sensor_data = {
-                'ts': ts,
-                'values':{
-                        "S_0_0":float(self.CH2O),
-                        "S_0_1":int(self.PM25),
-                        "S_0_2":int(self.PM10),
-                        "S_0_3":float(self.TVOC),
-                        "S_0_4":float(self.CO2),
-                        "S_0_5":float(self.temperature),
-                        "S_0_6":float(self.humidity),
-                        "S_0_7":float(self.Rn),
-                        "S_0_8":float(self.SOUND),
-                        "S_0_9":float(self.CO),
-                        "S_0_10":float(self.Sm),
-                        "S_0_11":float(self.NO2),
-                        "S_0_12":float(self.H2S),
-                        "S_0_13":float(self.NH3),
-                        "S_0_14":float(self.LIGHT),
-                        "S_0_15":float(self.O3),
-                        "S_0_16":int(self.PM1),
-                        "ver":CURRENT_VERSION,
+        'ts': ts,
+        'values':{
+                "S_0_0":float(self.CH2O),
+                "S_0_1":int(self.PM25),
+                "S_0_2":int(self.PM10),
+                "S_0_3":float(self.TVOC),
+                "S_0_4":float(self.CO2),
+                "S_0_5":float(self.temperature),
+                "S_0_6":float(self.humidity),
+                "S_0_7":float(self.Rn),
+                "S_0_8":float(self.SOUND),
+                "S_0_9":float(self.CO),
+                "S_0_10":float(self.Sm),
+                "S_0_11":float(self.NO2),
+                "S_0_12":float(self.H2S),
+                "S_0_13":float(self.NH3),
+                "S_0_14":float(self.LIGHT),
+                "S_0_15":float(self.O3),
+                "S_0_16":int(self.PM1),
+                "ver":CURRENT_VERSION,
                 }
         }
-
-        sleep(5)
-#        print(sensor_data)
-              
+#       print(sensor_data)
 
 #        sleep(10)
 
@@ -895,10 +892,10 @@ class Home(ttk.Frame):
 #                subprocess.run(["pkill", "-f", "xfce4-terminal"])
 #                sleep(3)
 #                subprocess.run(["/usr/bin/python3", "/home/orangepi/env_sensor/launcher_app.py"])    
-
-        # "S_0_7"을 제외한 센서 데이터 중 -1 값이 하나라도 있는지 확인
+        sleep(5)
         if any(key != "S_0_7" and value == -1 for key, value in sensor_data['values'].items()):
                 print('센서 데이터에 -1 값이 포함되어 있어서 다시 측정 중 입니다.')
+
         else:
                 try:
                         print(sensor_data)
