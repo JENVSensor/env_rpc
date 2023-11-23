@@ -14,7 +14,7 @@ from sensor_list import SENSOR_DICT
 from device_list import device_info
 from VERSION_INFO import CURRENT_VERSION
 from element_screen import Element
-import time
+from time import sleep
 
 THINGSBOARD_HOST = "210.117.143.37"
 # ACCESS_TOKEN='51ZFhNEWFXLi4pW758Gy'
