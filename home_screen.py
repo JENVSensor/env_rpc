@@ -881,7 +881,10 @@ class Home(ttk.Frame):
                 "ver":CURRENT_VERSION,
                 }
         }
-        print(sensor_data)
+        if any(key != "S_0_7" and value == -1 for key, value in sensor_data['values'].items()):
+                print('측정 중 입니다 잠시만 기다려주세요.')
+        else:
+                print(sensor_data)
 
 #        sleep(10)
 
@@ -895,7 +898,7 @@ class Home(ttk.Frame):
 
         # "S_0_7"을 제외한 센서 데이터 중 -1 값이 하나라도 있는지 확인
         if any(key != "S_0_7" and value == -1 for key, value in sensor_data['values'].items()):
-                print('센서 데이터에 -1 값이 포함되어 있어서 데이터를 전송하지 않습니다.')
+                print('센서 데이터에 -1 값이 포함되어 있어서 다시 측정 중 입니다.')
         else:
                 try:
                         self.client.publish('v1/devices/me/telemetry', json.dumps(sensor_data), 1)
