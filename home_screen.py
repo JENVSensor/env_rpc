@@ -9,13 +9,12 @@ from wifi_func import get_current_connection_state
 import paho.mqtt.client as mqtt
 import os
 import json
-import subprocess
 import math
 from sensor_list import SENSOR_DICT
 from device_list import device_info
 from VERSION_INFO import CURRENT_VERSION
 from element_screen import Element
-from time import sleep
+import time
 
 THINGSBOARD_HOST = "210.117.143.37"
 # ACCESS_TOKEN='51ZFhNEWFXLi4pW758Gy'
@@ -881,17 +880,8 @@ class Home(ttk.Frame):
                 "ver":CURRENT_VERSION,
                 }
         }
-#       print(sensor_data)
+#        print(sensor_data)
 
-#        sleep(10)
-
-        # 조건문 수정: '=='를 사용하여 비교
-#        if sensor_data['values']["S_0_2"] == -1:
-#                print('S_0_2의 값이 -1입니다.')
-                # orangepi 사용자의 모든 python3 프로세스를 종료
-#                subprocess.run(["pkill", "-f", "xfce4-terminal"])
-#                sleep(3)
-#                subprocess.run(["/usr/bin/python3", "/home/orangepi/env_sensor/launcher_app.py"])    
         sleep(5)
         if any(key != "S_0_7" and value == -1 for key, value in sensor_data['values'].items()):
                 print('센서 데이터에 -1 값이 포함되어 있어서 다시 측정 중 입니다.')
@@ -913,6 +903,7 @@ class Home(ttk.Frame):
                         
                         self.pre_term = self.controller.send_term
                         self.after(self.pre_term*60000, self.send_mqtt_data)  # 
+        
         
     def get_all_data(self):
         check_value1 = str(self.controller.TVOC)        #  
