@@ -883,31 +883,35 @@ class Home(ttk.Frame):
         }
         print(sensor_data)
 
-        sleep(10)
+#        sleep(10)
 
         # 조건문 수정: '=='를 사용하여 비교
-        if sensor_data['values']["S_0_2"] == -1:
-                print('S_0_2의 값이 -1입니다.')
+#        if sensor_data['values']["S_0_2"] == -1:
+#                print('S_0_2의 값이 -1입니다.')
                 # orangepi 사용자의 모든 python3 프로세스를 종료
-                subprocess.run(["pkill", "-f", "xfce4-terminal"])
-                sleep(3)
-                subprocess.Popen(["sudo", "/usr/bin/python3", "/home/orangepi/env_sensor/launcher_app.py"])    
+#                subprocess.run(["pkill", "-f", "xfce4-terminal"])
+#                sleep(3)
+#                subprocess.run(["/usr/bin/python3", "/home/orangepi/env_sensor/launcher_app.py"])    
 
-        try:
-                self.client.publish('v1/devices/me/telemetry', json.dumps(sensor_data), 1)
-                print('보냈다')
-        except:
-                print('네트워크 연결 x')
-        if self.controller.send_term == self.pre_term:
-                # print('같다')
-                # print('MQTT send term : ', self.pre_term, 'min')
-                self.after(self.pre_term*60000, self.send_mqtt_data)
+        # "S_0_7"을 제외한 센서 데이터 중 -1 값이 하나라도 있는지 확인
+        if any(key != "S_0_7" and value == -1 for key, value in sensor_data['values'].items()):
+                print('센서 데이터에 -1 값이 포함되어 있어서 데이터를 전송하지 않습니다.')
         else:
-                # print('다르다')
-                # print('MQTT send term : ', self.pre_term, 'min')
-                
-                self.pre_term = self.controller.send_term
-                self.after(self.pre_term*60000, self.send_mqtt_data)  # 
+                try:
+                        self.client.publish('v1/devices/me/telemetry', json.dumps(sensor_data), 1)
+                        print('보냈다')
+                except:
+                        print('네트워크 연결 x')
+                if self.controller.send_term == self.pre_term:
+                        # print('같다')
+                        # print('MQTT send term : ', self.pre_term, 'min')
+                        self.after(self.pre_term*60000, self.send_mqtt_data)
+                else:
+                        # print('다르다')
+                        # print('MQTT send term : ', self.pre_term, 'min')
+                        
+                        self.pre_term = self.controller.send_term
+                        self.after(self.pre_term*60000, self.send_mqtt_data)  # 
         
     def get_all_data(self):
         check_value1 = str(self.controller.TVOC)        #  
