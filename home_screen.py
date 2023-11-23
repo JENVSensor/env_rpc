@@ -880,7 +880,7 @@ class Home(ttk.Frame):
                 "ver":CURRENT_VERSION,
                 }
         }
-        print("sensor_data4 : ",sensor_data)
+#        print(sensor_data)
 
         sleep(5)
         if any(key != "S_0_7" and value == -1 for key, value in sensor_data['values'].items()):
@@ -896,12 +896,10 @@ class Home(ttk.Frame):
                 if self.controller.send_term == self.pre_term:
                         # print('같다')
                         # print('MQTT send term : ', self.pre_term, 'min')
-                        print("sensor_data2 : ",sensor_data)
                         self.after(self.pre_term*60000, self.send_mqtt_data)
                 else:
                         # print('다르다')
                         # print('MQTT send term : ', self.pre_term, 'min')
-                        print("sensor_data3 : ",sensor_data)
                         self.pre_term = self.controller.send_term
                         self.after(self.pre_term*60000, self.send_mqtt_data)  # 
         
