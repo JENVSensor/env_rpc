@@ -880,9 +880,10 @@ class Home(ttk.Frame):
                 "ver":CURRENT_VERSION,
                 }
         }
-#        print(sensor_data)
+        print("sensor_data4 : ",sensor_data)
 
         sleep(5)
+        print("sensor_data5 : ",sensor_data)
         if any(key != "S_0_7" and value == -1 for key, value in sensor_data['values'].items()):
                 print('센서 데이터에 -1 값이 포함되어 있어서 다시 측정 중 입니다.')
 
