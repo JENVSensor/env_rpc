@@ -888,7 +888,7 @@ class Home(ttk.Frame):
 
         else:
                 try:
-                        print(sensor_data)
+                        print("sensor_data : ",sensor_data)
                         self.client.publish('v1/devices/me/telemetry', json.dumps(sensor_data), 1)
                         print('보냈다')
                 except:
@@ -896,11 +896,12 @@ class Home(ttk.Frame):
                 if self.controller.send_term == self.pre_term:
                         # print('같다')
                         # print('MQTT send term : ', self.pre_term, 'min')
+                        print("sensor_data2 : ",sensor_data)
                         self.after(self.pre_term*60000, self.send_mqtt_data)
                 else:
                         # print('다르다')
                         # print('MQTT send term : ', self.pre_term, 'min')
-                        
+                        print("sensor_data3 : ",sensor_data)
                         self.pre_term = self.controller.send_term
                         self.after(self.pre_term*60000, self.send_mqtt_data)  # 
         
