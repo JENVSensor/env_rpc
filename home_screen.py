@@ -893,15 +893,18 @@ class Home(ttk.Frame):
                         print('보냈다')
                 except:
                         print('네트워크 연결 x')
-                if self.controller.send_term == self.pre_term:
-                        # print('같다')
-                        # print('MQTT send term : ', self.pre_term, 'min')
-                        self.after(self.pre_term*60000, self.send_mqtt_data)
-                else:
-                        # print('다르다')
-                        # print('MQTT send term : ', self.pre_term, 'min')
-                        self.pre_term = self.controller.send_term
-                        self.after(self.pre_term*60000, self.send_mqtt_data)  # 
+
+                self.pre_term = self.controller.send_term
+                self.after(self.pre_term*60000, self.send_mqtt_data)  #         
+#                if self.controller.send_term == self.pre_term:
+#                        # print('같다')
+#                        # print('MQTT send term : ', self.pre_term, 'min')
+#                        self.after(self.pre_term*60000, self.send_mqtt_data)
+#                else:
+#                        # print('다르다')
+#                        # print('MQTT send term : ', self.pre_term, 'min')
+#                        self.pre_term = self.controller.send_term
+#                        self.after(self.pre_term*60000, self.send_mqtt_data)  # 
         
         
     def get_all_data(self):
