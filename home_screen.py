@@ -936,21 +936,12 @@ class Home(ttk.Frame):
                 else:
                         self.TVOC_label.config(text=self.TVOC)
                 
-
                 self.CO2 = self.controller.CO2
-
                 if self.CO2 < 0:
-                        self.CO2_label.config(text='...')
-                elif 250 <= self.CO2 < 320:
-                        self.CO2 += 224.6
-                        self.CO2 = (int)(self.CO2)
-                elif self.CO2 >= 400:
-                        self.CO2 += 305
-                        self.CO2 = (int)(self.CO2)
-
-                # 어떤 경우에도 CO2 값이 업데이트 되고, 레이블에 적용되어야 합니다.
-                self.CO2_label.config(text=int(self.CO2))
-
+                        self.CO2_label.config(text='...')        
+                else:
+                        self.CO2_label.config(text=self.CO2)
+                
                 self.PM1 = self.controller.PM1
                 if self.PM1 < 0:
                         self.PM1_label.config(text='...')        
