@@ -939,7 +939,7 @@ class Home(ttk.Frame):
                 else:
                         self.TVOC_label.config(text=self.TVOC)
                 
-                self.CO2 = self.controller.CO2 + 236 # 34 : CO2 값을 + 236
+                self.CO2 = self.controller.CO2 + 236 # 35 : CO2 값을 + 239
                 #self.CO2 = self.controller.CO2
                 if self.CO2 < 0:
                         self.CO2_label.config(text='...')        
