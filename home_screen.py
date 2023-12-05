@@ -942,25 +942,26 @@ class Home(ttk.Frame):
                 #self.CO2 = self.controller.CO2 + 236 # 34 : CO2 값을 + 239
                 self.CO2 = self.controller.CO2
                 if self.CO2 < 0:
-                        self.CO2_label.config(text='...')        
-                else:
-                        self.CO2_label.config(text=self.CO2)
-                
-                #self.PM1 = self.controller.PM1/3 #15, 22, 25 3분1값으로 수정
+                        self.CO2_label.config(text='...')
+                elif 250 <= self.CO2 < 320:
+                        self.CO2 += 189
+                elif 320 <= self.CO2 < 450:
+                        self.CO2 = -0.9943 * self.CO2 + 497.66
+                elif self.CO2 >= 550:
+                        self.CO2 += 106
+                        
                 self.PM1 = self.controller.PM1 
                 if self.PM1 < 0:
                         self.PM1_label.config(text='...')        
                 else:
                         self.PM1_label.config(text=int(self.PM1))
                 
-                #self.PM25 = self.controller.PM25/3 #15, 22, 25 3분1값으로 수정
                 self.PM25 = self.controller.PM25
                 if self.PM25 < 0:
                         self.PM25_label.config(text='...')        
                 else:
                         self.PM25_label.config(text=int(self.PM25))
                 
-                #self.PM10 = self.controller.PM10/3 #15, 22, 25 3분1값으로 수정
                 self.PM10 = self.controller.PM10
                 if self.PM10 < 0:
                         self.PM10_label.config(text='...')        
