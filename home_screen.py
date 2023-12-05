@@ -942,13 +942,13 @@ class Home(ttk.Frame):
                 if self.CO2 < 0:
                         self.CO2_label.config(text='...')
                 elif 250 <= self.CO2 < 320:
-                        self.CO2 += 189
+                        self.CO2 += 221.9
                 elif 320 <= self.CO2 < 450:
                         self.CO2 = -0.9943 * self.CO2 + 497.66
                 elif 450 <= self.CO2 < 550:
                         self.CO2 = self.CO2
                 elif self.CO2 >= 550:
-                        self.CO2 += 106
+                        self.CO2 += 102.375
 
                 # 어떤 경우에도 CO2 값이 업데이트 되고, 레이블에 적용되어야 합니다.
                 self.CO2_label.config(text=int(self.CO2))
