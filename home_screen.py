@@ -864,8 +864,7 @@ class Home(ttk.Frame):
                 "S_0_1":int(self.PM25),
                 "S_0_2":int(self.PM10),
                 "S_0_3":float(self.TVOC),
-                "S_0_4":float(self.CO2),  # 17 : CO2 값을 + 201
-                #"S_0_4":float(self.CO2),
+                "S_0_4":float(self.CO2),  
                 "S_0_5":float(self.temperature),
                 "S_0_6":float(self.humidity),
                 "S_0_7":float(self.Rn),
@@ -940,7 +939,7 @@ class Home(ttk.Frame):
                 else:
                         self.TVOC_label.config(text=self.TVOC)
                 
-                self.CO2 = self.controller.CO2 + 201 # 17 : CO2 값을 + 201
+                self.CO2 = self.controller.CO2 + 236 # 34 : CO2 값을 + 236
                 #self.CO2 = self.controller.CO2
                 if self.CO2 < 0:
                         self.CO2_label.config(text='...')        
