@@ -946,19 +946,22 @@ class Home(ttk.Frame):
                 else:
                         self.CO2_label.config(text=self.CO2)
                 
-                self.PM1 = self.controller.PM1
+                self.PM1 = self.controller.PM1/3 #15, 22, 25 3분1값으로 수정
+                #self.PM1 = self.controller.PM1 
                 if self.PM1 < 0:
                         self.PM1_label.config(text='...')        
                 else:
                         self.PM1_label.config(text=int(self.PM1))
                 
-                self.PM25 = self.controller.PM25
+                self.PM25 = self.controller.PM25/3 #15, 22, 25 3분1값으로 수정
+                #self.PM25 = self.controller.PM25
                 if self.PM25 < 0:
                         self.PM25_label.config(text='...')        
                 else:
                         self.PM25_label.config(text=int(self.PM25))
                 
-                self.PM10 = self.controller.PM10
+                self.PM10 = self.controller.PM10 #15, 22, 25 3분1값으로 수정
+                #self.PM10 = self.controller.PM10
                 if self.PM10 < 0:
                         self.PM10_label.config(text='...')        
                 else:
