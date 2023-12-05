@@ -936,7 +936,7 @@ class Home(ttk.Frame):
                 else:
                         self.TVOC_label.config(text=self.TVOC)
                 
-                self.CO2 = self.controller.CO2 + 256
+                self.CO2 = self.controller.CO2 + 210
                 if self.CO2 < 0:
                         self.CO2_label.config(text='...')        
                 else:
