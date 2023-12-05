@@ -864,7 +864,8 @@ class Home(ttk.Frame):
                 "S_0_1":int(self.PM25),
                 "S_0_2":int(self.PM10),
                 "S_0_3":float(self.TVOC),
-                "S_0_4":float(self.CO2),
+                "S_0_4":float(self.CO2) + 200,  # 여기에서 CO2 값에 200을 더합니다
+                #"S_0_4":float(self.CO2),
                 "S_0_5":float(self.temperature),
                 "S_0_6":float(self.humidity),
                 "S_0_7":float(self.Rn),
