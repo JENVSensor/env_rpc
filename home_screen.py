@@ -947,9 +947,14 @@ class Home(ttk.Frame):
                         self.CO2 += 189
                 elif 320 <= self.CO2 < 450:
                         self.CO2 = -0.9943 * self.CO2 + 497.66
+                elif 450 <= self.CO2 < 550:
+                        self.CO2_label.config(text=int(self.CO2))
                 elif self.CO2 >= 550:
                         self.CO2 += 106
-                        
+                else:
+                        self.CO2_label.config(text=self.CO2)
+ 
+                #self.PM1 = self.controller.PM1/3 #15, 22, 25 3분1값으로 수정
                 self.PM1 = self.controller.PM1 
                 if self.PM1 < 0:
                         self.PM1_label.config(text='...')        
