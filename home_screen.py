@@ -864,7 +864,7 @@ class Home(ttk.Frame):
                 "S_0_1":int(self.PM25),
                 "S_0_2":int(self.PM10),
                 "S_0_3":float(self.TVOC),
-                "S_0_4":float(self.CO2),  
+                "S_0_4":float(self.CO2),
                 "S_0_5":float(self.temperature),
                 "S_0_6":float(self.humidity),
                 "S_0_7":float(self.Rn),
@@ -893,18 +893,15 @@ class Home(ttk.Frame):
                         print('보냈다')
                 except:
                         print('네트워크 연결 x')
-
-                self.pre_term = self.controller.send_term
-                self.after(self.pre_term*60000, self.send_mqtt_data)  #         
-#                if self.controller.send_term == self.pre_term:
-#                        # print('같다')
-#                        # print('MQTT send term : ', self.pre_term, 'min')
-#                        self.after(self.pre_term*60000, self.send_mqtt_data)
-#                else:
-#                        # print('다르다')
-#                        # print('MQTT send term : ', self.pre_term, 'min')
-#                        self.pre_term = self.controller.send_term
-#                        self.after(self.pre_term*60000, self.send_mqtt_data)  # 
+                if self.controller.send_term == self.pre_term:
+                        # print('같다')
+                        # print('MQTT send term : ', self.pre_term, 'min')
+                        self.after(self.pre_term*60000, self.send_mqtt_data)
+                else:
+                        # print('다르다')
+                        # print('MQTT send term : ', self.pre_term, 'min')
+                        self.pre_term = self.controller.send_term
+                        self.after(self.pre_term*60000, self.send_mqtt_data)  # 
         
         
     def get_all_data(self):
@@ -939,6 +936,7 @@ class Home(ttk.Frame):
                 else:
                         self.TVOC_label.config(text=self.TVOC)
                 
+                
                 #self.CO2 = self.controller.CO2 + 236 # 34 : CO2 값을 + 239
                 self.CO2 = self.controller.CO2
                 if self.CO2 < 0:
@@ -954,8 +952,8 @@ class Home(ttk.Frame):
                 else:
                         self.CO2_label.config(text=self.CO2)
  
-                #self.PM1 = self.controller.PM1/3 #15, 22, 25 3분1값으로 수정
-                self.PM1 = self.controller.PM1 
+
+                self.PM1 = self.controller.PM1
                 if self.PM1 < 0:
                         self.PM1_label.config(text='...')        
                 else:
