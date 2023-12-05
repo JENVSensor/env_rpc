@@ -960,7 +960,7 @@ class Home(ttk.Frame):
                 else:
                         self.PM25_label.config(text=int(self.PM25))
                 
-                self.PM10 = self.controller.PM10 #15, 22, 25 3분1값으로 수정
+                self.PM10 = self.controller.PM10/3 #15, 22, 25 3분1값으로 수정
                 #self.PM10 = self.controller.PM10
                 if self.PM10 < 0:
                         self.PM10_label.config(text='...')        
