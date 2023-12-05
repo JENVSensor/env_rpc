@@ -936,23 +936,12 @@ class Home(ttk.Frame):
                 else:
                         self.TVOC_label.config(text=self.TVOC)
                 
-                
-                #self.CO2 = self.controller.CO2 + 236 # 34 : CO2 값을 + 239
                 self.CO2 = self.controller.CO2
                 if self.CO2 < 0:
-                        self.CO2_label.config(text='...')
-                elif 250 <= self.CO2 < 320:
-                        self.CO2 += 189
-                elif 320 <= self.CO2 < 450:
-                        self.CO2 = -0.9943 * self.CO2 + 497.66
-                elif 450 <= self.CO2 < 550:
-                        self.CO2_label.config(text=int(self.CO2))
-                elif self.CO2 >= 550:
-                        self.CO2 += 106
+                        self.CO2_label.config(text='...')        
                 else:
                         self.CO2_label.config(text=self.CO2)
- 
-
+                
                 self.PM1 = self.controller.PM1
                 if self.PM1 < 0:
                         self.PM1_label.config(text='...')        
