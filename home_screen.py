@@ -935,8 +935,9 @@ class Home(ttk.Frame):
                         self.TVOC_label.config(text='...')        
                 else:
                         self.TVOC_label.config(text=self.TVOC)
-                
-                self.CO2 = self.controller.CO2 + 210
+
+                self.CO2 = self.controller.CO2
+                #self.CO2 = self.controller.CO2 + 210
                 if self.CO2 < 0:
                         self.CO2_label.config(text='...')        
                 else:
@@ -1008,7 +1009,8 @@ class Home(ttk.Frame):
                 else:
                         self.Sound_label.config(text=self.SOUND)
                 
-                self.Rn = self.controller.Rn
+                self.Rn = self.controller.Rn * 9
+                # self.Rn = self.controller.Rn 
                 if self.Rn < 0:
                         self.Rn_label.config(text='...')        
                 else:
