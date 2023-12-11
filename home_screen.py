@@ -952,8 +952,7 @@ class Home(ttk.Frame):
                 
 
                 # 새로운 계산식을 적용
-                self.PM1 = (0.5791 * original_PM1) + 4.9836
-                #self.PM1 = (0.612  * original_PM1) + 5.2096
+                self.PM1 = (0.612  * original_PM1) + 5.2096
                 #self.PM1 = self.controller.PM1
                 if self.PM1 < 0:
                         self.PM1_label.config(text='...')        
