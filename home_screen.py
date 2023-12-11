@@ -950,7 +950,12 @@ class Home(ttk.Frame):
                 else:
                         self.CO2_label.config(text=self.CO2)
                 
-                self.PM1 = self.controller.PM1
+                # self.controller.PM1로부터 원래의 PM1.0 값을 찾음
+                original_PM1 = (self.controller.PM1 - 5.1584) / 0.554
+
+                # 새로운 계산식을 적용
+                self.PM1 = 0.5791 * original_PM1 + 4.9836
+                #self.PM1 = self.controller.PM1
                 if self.PM1 < 0:
                         self.PM1_label.config(text='...')        
                 else:
