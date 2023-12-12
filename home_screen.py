@@ -1022,7 +1022,7 @@ class Home(ttk.Frame):
                 else:
                         self.Sound_label.config(text=self.SOUND)
                 
-                self.Rn = ((self.controller.Rn * 37) +  129)
+                self.Rn = self.controller.Rn + 210
                 #self.Rn = self.controller.Rn
                 if self.Rn < 0:
                         self.Rn_label.config(text='...')        
