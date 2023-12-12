@@ -1029,7 +1029,7 @@ class Home(ttk.Frame):
                         self.Rn_label.config(text='...')        
                 else:
                         random_value = random.randint(0, 10)  # 0과 10 사이의 랜덤한 값을 생성합니다
-                        self.Rn += random_value + 225  # 생성된 랜덤 값을 Rn에 더하고, 추가로 225를 더합니다
+                        self.Rn = random_value + 225  # 생성된 랜덤 값을 Rn에 더하고, 추가로 225를 더합니다
                         self.Rn_label.config(text=self.Rn)
                         #self.Rn_label.config(text=self.Rn)
                 
