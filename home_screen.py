@@ -15,7 +15,6 @@ from device_list import device_info
 from VERSION_INFO import CURRENT_VERSION
 from element_screen import Element
 from time import sleep
-import random
 
 THINGSBOARD_HOST = "210.117.143.37"
 # ACCESS_TOKEN='51ZFhNEWFXLi4pW758Gy'
@@ -1028,10 +1027,7 @@ class Home(ttk.Frame):
                 if self.Rn < 0:
                         self.Rn_label.config(text='...')        
                 else:
-                        random_value = random.randint(0, 10)  # 0과 10 사이의 랜덤한 값을 생성합니다
-                        self.Rn = random_value + 225  # 생성된 랜덤 값을 Rn에 더하고, 추가로 225를 더합니다
                         self.Rn_label.config(text=self.Rn)
-                        #self.Rn_label.config(text=self.Rn)
                 
                 self.O3 = self.controller.O3
                 if self.O3 < 0:
