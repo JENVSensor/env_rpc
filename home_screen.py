@@ -974,6 +974,7 @@ class Home(ttk.Frame):
                 else:
                         self.PM10_label.config(text=int(self.PM10))
                 
+                
                 self.CH2O = self.controller.CH2O
                 if self.CH2O < 0:
                         self.CH2O_label.config(text='...')        
