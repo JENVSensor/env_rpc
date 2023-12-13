@@ -42,7 +42,6 @@ sensor_data = {
 class Home(ttk.Frame):
     def __init__(self, parent, controller, show_element, show_wifi, show_info, show_ethernet):
         super().__init__(parent)
-        self.previous_radon = None  # 이전 라돈값 초기화
 
         self.controller = controller
         self.show_wifi = show_wifi
@@ -914,10 +913,6 @@ class Home(ttk.Frame):
         check_value2 = str(self.controller.temperature) # 
         check_value3 = str(self.controller.humidity)    # 
         
-        # 라돈값 업데이트 부분
-        current_radon = self.Rn = self.controller.Rn
-        calculated_radon = 0  # 계산된 라돈값 초기화        
-        
         
         
         if not check_value1.startswith('PY') and not check_value2.startswith('PY') and not check_value3.startswith('PY'):                    # 원래 이렇게 처리하는게 아닌데.. 시간이 없어서 나중에 고칠 것...
@@ -1030,21 +1025,12 @@ class Home(ttk.Frame):
                 
                 #self.Rn = ((self.controller.Rn * 37) + 79)
                 #self.Rn = self.controller.Rn
-                self.Rn = self.controller.Rn + 140
+                self.Rn = self.controller.Rn + 170
                 if self.Rn < 0:
                         self.Rn_label.config(text='...')        
                 else:
                         self.Rn_label.config(text=self.Rn)
 
-#                if self.previous_radon is not None and current_radon != self.previous_radon:
-#                        calculated_radon = current_radon + 130
-#                        if 180 < calculated_radon < 250:
-#                                print(f"계산된 라돈: {calculated_radon}")
-#                        else:
-#                                calculated_radon = 180.5 + random.uniform(0, 15)
-#                                print(f"계산된 라돈 (랜덤 범위 내): {calculated_radon}")
-#                elif self.previous_radon is not None:
-#                        print(f"이전 계산된 라돈값: {self.previous_radon}")
 
 
                 self.O3 = self.controller.O3
