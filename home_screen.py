@@ -1025,7 +1025,7 @@ class Home(ttk.Frame):
                 
                 #self.Rn = ((self.controller.Rn * 37) + 79)
                 #self.Rn = self.controller.Rn
-                self.Rn = self.controller.Rn * 37
+                self.Rn = self.controller.Rn
                 if self.Rn < 0:
                         self.Rn_label.config(text='...')        
                 else:
