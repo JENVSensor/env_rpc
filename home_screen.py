@@ -44,7 +44,9 @@ class Home(ttk.Frame):
         super().__init__(parent)
         #Rn 속성정의 
         self.previous_Rn = None
-        self.calculated_Rn_label = None
+        # Label 위젯을 생성합니다.
+        self.calculated_Rn_label = ttk.Label(self)
+        self.calculated_Rn_label.pack()
         
 
         self.controller = controller
@@ -1036,24 +1038,28 @@ class Home(ttk.Frame):
                 # else:
                 #         self.Rn_label.config(text=self.Rn)
 
-                self.Rn = self.controller.Rn
-                if self.Rn < 0:
-                        self.Rn_label.config(text='...')        
-                else:
-                        # 이전 라돈값과 현재값이 다를 경우
-                        if self.previous_Rn != self.Rn:
-                                calculated_Rn = self.Rn + 130
 
-                                if 180 < calculated_Rn < 250:
-                                        # 계산된 라돈 출력
-                                        self.calculated_Rn_label.config(text=str(calculated_Rn))
-                                else:
-                                        # 계산된 라돈 = 180.5 + random(15)
-                                        calculated_Rn = 180.5 + random.randint(0, 14)
-                                        self.calculated_Rn_label.config(text=str(calculated_Rn))
+                        self.Rn = self.controller.Rn
+                        if self.Rn < 0:
+                                self.Rn_label.config(text='...')        
                         else:
-                                # 이전 계산된 라돈값 출력
-                                self.calculated_Rn_label.config(text=str(self.previous_Rn))                       
+                        # 이전 라돈값과 현재값이 다를 경우
+                                if self.previous_Rn != self.Rn:
+                                        calculated_Rn = self.Rn + 130
+
+                                        if 180 < calculated_Rn < 250:
+                                        # 계산된 라돈 출력
+                                                self.calculated_Rn_label.config(text=str(calculated_Rn))
+                                        else:
+                                        # 계산된 라돈 = 180.5 + random(15)
+                                                calculated_Rn = 180.5 + random.randint(0, 14)
+                                                self.calculated_Rn_label.config(text=str(calculated_Rn))
+                                        
+                                        # 업데이트된 라돈값을 '이전 라돈값'으로 설정합니다.
+                                        self.previous_Rn = calculated_Rn
+                                else:
+                                        # 이전 계산된 라돈값 출력
+                                        self.calculated_Rn_label.config(text=str(self.previous_Rn))
 
 
 
