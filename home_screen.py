@@ -44,6 +44,9 @@ class Home(ttk.Frame):
         super().__init__(parent)
         #Rn 속성정의 
         self.previous_Rn = None
+        self.calculated_Rn_label = None
+        
+
         self.controller = controller
         self.show_wifi = show_wifi
         self.show_ethernet = show_ethernet
