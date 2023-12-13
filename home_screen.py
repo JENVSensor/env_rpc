@@ -42,7 +42,8 @@ sensor_data = {
 class Home(ttk.Frame):
     def __init__(self, parent, controller, show_element, show_wifi, show_info, show_ethernet):
         super().__init__(parent)
-        
+        #Rn 속성정의 
+        self.previous_Rn = None
         self.controller = controller
         self.show_wifi = show_wifi
         self.show_ethernet = show_ethernet
