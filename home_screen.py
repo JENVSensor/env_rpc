@@ -944,7 +944,7 @@ class Home(ttk.Frame):
                         self.TVOC_label.config(text=self.TVOC)
 
                 self.CO2 = self.controller.CO2
-                #self.CO2 = self.controller.CO2 + 210
+                #18번일경우 self.CO2 = self.controller.CO2 + 210
                 if self.CO2 < 0:
                         self.CO2_label.config(text='...')        
                 else:
@@ -1025,6 +1025,12 @@ class Home(ttk.Frame):
                 
                 #self.Rn = ((self.controller.Rn * 37) + 79)
                 self.Rn = self.controller.Rn
+                # 디바이스 번호가 18번인 경우 CO2 값을 조정합니다.
+                if self.controller.device_number == 29:
+                        self.Rn += 200
+                
+                if self.controller.device_number == 23:
+                        self.Rn += 100                
                 #self.Rn = self.controller.Rn + 130
                 if self.Rn < 0:
                         self.Rn_label.config(text='...')        
