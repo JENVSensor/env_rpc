@@ -901,7 +901,6 @@ class Home(ttk.Frame):
 
 
 
-
 #                if self.controller.send_term == self.pre_term:
                         # print('같다')
                         # print('MQTT send term : ', self.pre_term, 'min')
