@@ -883,42 +883,21 @@ class Home(ttk.Frame):
         }
         print(sensor_data)
 
-        # sleep(5)
-        # if any(key != "S_0_7" and value == -1 for key, value in sensor_data['values'].items()):
-        #         print('센서 데이터에 -1 값이 포함되어 있어서 다시 측정 중 입니다.')
-        #         self.after(5000, self.send_mqtt_data)  # 5초 후에 send_mqtt_data 함수를 다시 호출합니다.
-        # else:
-        #         try:
-        #                 print("sensor_data : ",sensor_data)
-        #                 self.client.publish('v1/devices/me/telemetry', json.dumps(sensor_data), 1)
-        #                 print('보냈다')
-        #         except:
-        #                 #print('네트워크 연결 x')
-        #                 print(f'데이터 전송 실패: {e}')
-                        
-        #         self.pre_term = self.controller.send_term
-        #         self.after(self.pre_term*60000, self.send_mqtt_data) 
-
         sleep(5)
-        # 센서 데이터 유효성 검사
         if any(key != "S_0_7" and value == -1 for key, value in sensor_data['values'].items()):
-            print('센서 데이터에 -1 값이 포함되어 있어서 다시 측정 중 입니다.')
-            self.after(5000, self.send_mqtt_data)  # 5초 후에 send_mqtt_data 함수를 다시 호출
-            return
-
-        # 데이터 전송 로직
-        try:
-            print("sensor_data : ", sensor_data)
-            self.client.publish('v1/devices/me/telemetry', json.dumps(sensor_data), 1)
-            print('데이터 전송 성공')
-        except Exception as e:
-            print(f'데이터 전송 실패: {e}')
-
-        # 다음 데이터 전송을 위한 스케줄링
+                print('센서 데이터에 -1 값이 포함되어 있어서 다시 측정 중 입니다.')
+                self.after(5000, self.send_mqtt_data)  # 5초 후에 send_mqtt_data 함수를 다시 호출합니다.
+        else:
+                try:
+                        print("sensor_data : ",sensor_data)
+                        self.client.publish('v1/devices/me/telemetry', json.dumps(sensor_data), 1)
+                        print('보냈다')
+                except:
+                        #print('네트워크 연결 x')
+                        print(f'데이터 전송 실패: {e}')
+                        
         self.pre_term = self.controller.send_term
-        self.after(self.pre_term * 60000, self.send_mqtt_data)        
-
-
+        self.after(self.pre_term*60000, self.send_mqtt_data) 
 
 
 
