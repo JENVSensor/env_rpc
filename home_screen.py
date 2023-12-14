@@ -1027,10 +1027,10 @@ class Home(ttk.Frame):
                 self.Rn = self.controller.Rn
                 # 디바이스 번호가 18번인 경우 CO2 값을 조정합니다.
                 if self.controller.device_number == 29:
-                        self.Rn += 200
+                        self.Rn += 100
                 
-                if self.controller.device_number == 23:
-                        self.Rn += 100                
+                if self.controller.device_number == 26:
+                        self.Rn += 200                
                 #self.Rn = self.controller.Rn + 130
                 if self.Rn < 0:
                         self.Rn_label.config(text='...')        
