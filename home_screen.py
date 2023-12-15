@@ -883,7 +883,7 @@ class Home(ttk.Frame):
         }
 
 
-        current_time = datetime.datetime.now()
+        current_time = datetime.now()
         print(f"{current_time}: {sensor_data.values}")        
         #print(sensor_data)
 
@@ -898,7 +898,7 @@ class Home(ttk.Frame):
                         print('보냈다')
                 except:
                         #print('네트워크 연결 x')
-                        print(f'데이터 전송 실패: {e}')
+                        print(f'데이터 전송 실패')
                         
         self.pre_term = self.controller.send_term
         self.after(self.pre_term*60000, self.send_mqtt_data) 
