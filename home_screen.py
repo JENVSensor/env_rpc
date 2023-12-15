@@ -883,8 +883,8 @@ class Home(ttk.Frame):
         }
 
 
-       
-        print(sensor_data)
+        
+        #print(sensor_data)
 
         sleep(5)
         if any(key != "S_0_7" and value == -1 for key, value in sensor_data['values'].items()):
