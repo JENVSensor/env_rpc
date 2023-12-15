@@ -884,7 +884,7 @@ class Home(ttk.Frame):
 
 
         current_time = datetime.now()
-        print(f"{current_time}: {sensor_data.values}")        
+        print(f"{current_time}: {sensor_data['values']}")        
         #print(sensor_data)
 
         sleep(5)
