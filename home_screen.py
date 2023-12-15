@@ -42,7 +42,6 @@ sensor_data = {
 class Home(ttk.Frame):
     def __init__(self, parent, controller, show_element, show_wifi, show_info, show_ethernet):
         super().__init__(parent)
-
         self.controller = controller
         self.show_wifi = show_wifi
         self.show_ethernet = show_ethernet
@@ -71,6 +70,12 @@ class Home(ttk.Frame):
         self.pre_lan_state = 'wlan'                     # 하드 코딩의 묘미//
         self.client = mqtt.Client()
         self.client.username_pw_set(self.info_device[3])
+
+        # 이전 sensor_data 초기화
+        self.previous_sensor_data = None
+        # sensor_data 체크 시작
+        self.check_sensor_data()
+
         try:
                 self.client.connect(THINGSBOARD_HOST, port, 60)
                 self.client.loop_start()
@@ -881,7 +886,23 @@ class Home(ttk.Frame):
                 "ver":CURRENT_VERSION,
                 }
         }
-        print(sensor_data)
+
+    def check_sensor_data(self):
+        current_time = datetime.now()
+        global sensor_data  # 전역 변수 사용
+
+        # 이전 데이터와 현재 데이터 비교
+        if sensor_data == self.previous_sensor_data:
+            print(f"{current_time}: {sensor_data} (동일한 값)")
+        else:
+            print(f"{current_time}: {sensor_data}")
+            self.previous_sensor_data = sensor_data  # 현재 데이터를 이전 데이터로 업데이트
+
+
+        # 1초 후에 다시 체크
+        self.after(1000, self.check_sensor_data)
+
+        #print(sensor_data)
 
         sleep(5)
         if any(key != "S_0_7" and value == -1 for key, value in sensor_data['values'].items()):
