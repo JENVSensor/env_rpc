@@ -904,7 +904,7 @@ class Home(ttk.Frame):
         if any(key != "S_0_7" and value == -1 for key, value in sensor_data['values'].items()):
                 print('센서 데이터에 -1 값이 포함되어 있어서 다시 측정 중입니다.')
                 self.after(5000, self.send_mqtt_data)  # 5초 후에 send_mqtt_data 함수를 다시 호출합니다.
-                
+        
                 # 데이터가 변경되지 않았는지 확인합니다.
                 if not data_changed:
                         print('센서 데이터가 변경되지 않았습니다. 데이터를 다시 측정합니다.')
@@ -929,8 +929,8 @@ class Home(ttk.Frame):
         #                 #print('네트워크 연결 x')
         #                 print(f'데이터 전송 실패')
                         
-        # self.pre_term = self.controller.send_term
-        # self.after(self.pre_term*60000, self.send_mqtt_data) 
+        self.pre_term = self.controller.send_term
+        self.after(self.pre_term*60000, self.send_mqtt_data) 
 
         # 현재 센서 데이터를 이전 데이터로 저장합니다.
         self.previous_sensor_data = sensor_data['values'].copy()       
