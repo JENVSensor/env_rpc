@@ -883,7 +883,8 @@ class Home(ttk.Frame):
         }
 
 
-        
+        current_time = datetime.datetime.now()
+        print(f"{current_time}: {sensor_data.values}")        
         #print(sensor_data)
 
         sleep(5)
@@ -892,7 +893,7 @@ class Home(ttk.Frame):
                 self.after(5000, self.send_mqtt_data)  # 5초 후에 send_mqtt_data 함수를 다시 호출합니다.
         else:
                 try:
-                        print("sensor_data : ",sensor_data)
+                        #print("sensor_data : ",sensor_data)
                         self.client.publish('v1/devices/me/telemetry', json.dumps(sensor_data), 1)
                         print('보냈다')
                 except:
