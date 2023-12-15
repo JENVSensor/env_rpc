@@ -71,6 +71,9 @@ class Home(ttk.Frame):
         self.pre_lan_state = 'wlan'                     # 하드 코딩의 묘미//
         self.client = mqtt.Client()
         self.client.username_pw_set(self.info_device[3])
+        # 클래스 변수로 이전 센서 데이터를 저장합니다.
+        previous_sensor_data = None
+
         try:
                 self.client.connect(THINGSBOARD_HOST, port, 60)
                 self.client.loop_start()
@@ -858,6 +861,7 @@ class Home(ttk.Frame):
         ct = datetime.now()
         ts = ct.timestamp()
         ts = math.floor(ts*1000)
+
         sensor_data = {
         'ts': ts,
         'values':{
@@ -882,17 +886,26 @@ class Home(ttk.Frame):
                 }
         }
 
+         # 변경된 데이터가 있는지 확인합니다.
+        data_changed = self.has_data_changed(sensor_data['values'])
 
         current_time = datetime.now()
-        print(f"{current_time}: {sensor_data['values']}")        
+        #print(f"{current_time}: {sensor_data['values']}")        
         #print(sensor_data)
 
         sleep(5)
-        if any(key != "S_0_7" and value == -1 for key, value in sensor_data['values'].items()):
-                print('센서 데이터에 -1 값이 포함되어 있어서 다시 측정 중 입니다.')
-                self.after(5000, self.send_mqtt_data)  # 5초 후에 send_mqtt_data 함수를 다시 호출합니다.
+
+        # 기존의 조건문을 유지하면서, 데이터 변경 여부도 추가합니다.
+        if any(key != "S_0_7" and value == -1 for key, value in sensor_data['values'].items()) or data_changed:
+            print('센서 데이터에 -1 값이 포함되어 있거나 데이터가 변경되어 다시 측정 중입니다.')
+            self.after(5000, self.send_mqtt_data)  # 5초 후에 send_mqtt_data 함수를 다시 호출합니다.
+
+        # if any(key != "S_0_7" and value == -1 for key, value in sensor_data['values'].items()):
+        #         print('센서 데이터에 -1 값이 포함되어 있어서 다시 측정 중 입니다.')
+        #         self.after(5000, self.send_mqtt_data)  # 5초 후에 send_mqtt_data 함수를 다시 호출합니다.
         else:
                 try:
+                        print(f"{current_time}: {sensor_data['values']}")
                         #print("sensor_data : ",sensor_data)
                         self.client.publish('v1/devices/me/telemetry', json.dumps(sensor_data), 1)
                         print('보냈다')
@@ -903,7 +916,20 @@ class Home(ttk.Frame):
         self.pre_term = self.controller.send_term
         self.after(self.pre_term*60000, self.send_mqtt_data) 
 
+        # 현재 센서 데이터를 이전 데이터로 저장합니다.
+        self.previous_sensor_data = sensor_data['values'].copy()       
 
+    def has_data_changed(self, current_data):
+        # 이전 데이터가 없으면 변경이 없다고 가정합니다.
+        if self.previous_sensor_data is None:
+            return False
+
+        # 이전 데이터와 현재 데이터를 비교합니다.
+        for key, value in current_data.items():
+            if self.previous_sensor_data.get(key) != value:
+                return True
+
+        return False
 
 #                if self.controller.send_term == self.pre_term:
                         # print('같다')
