@@ -896,38 +896,41 @@ class Home(ttk.Frame):
         sleep(5)
 
 
-        # if any(key != "S_0_7" and value == -1 for key, value in sensor_data['values'].items()):
-        #         print('센서 데이터에 -1 값이 포함되어 있어서 다시 측정 중 입니다.')
-        #         self.after(5000, self.send_mqtt_data)  # 5초 후에 send_mqtt_data 함수를 다시 호출합니다.
-
-        # -1 값이 포함되어 있는지 확인합니다.
         if any(key != "S_0_7" and value == -1 for key, value in sensor_data['values'].items()):
-                print('센서 데이터에 -1 값이 포함되어 있어서 다시 측정 중입니다.')
+                print('센서 데이터에 -1 값이 포함되어 있어서 다시 측정 중 입니다.')
                 self.after(5000, self.send_mqtt_data)  # 5초 후에 send_mqtt_data 함수를 다시 호출합니다.
+                return
+
+
+
+        # # -1 값이 포함되어 있는지 확인합니다.
+        # if any(key != "S_0_7" and value == -1 for key, value in sensor_data['values'].items()):
+        #         print('센서 데이터에 -1 값이 포함되어 있어서 다시 측정 중입니다.')
+        #         self.after(5000, self.send_mqtt_data)  # 5초 후에 send_mqtt_data 함수를 다시 호출합니다.
         
-                # 데이터가 변경되지 않았는지 확인합니다.
-                if not data_changed:
-                        print('센서 데이터가 변경되지 않았습니다. 데이터를 다시 측정합니다.')
-                        self.after(5000, self.send_mqtt_data)  # 1분후 후에 send_mqtt_data 함수를 다시 호출합니다.
-                        return  # 함수를 여기서 종료하고 빠져나옵니다.
-                else:
-                        try:
-                                print(f"{current_time}: {sensor_data['values']}")
-                                self.client.publish('v1/devices/me/telemetry', json.dumps(sensor_data), 1)
-                                print('보냈다')
-                        except:
-                                print(f'데이터 전송 실패')
+        #         # 데이터가 변경되지 않았는지 확인합니다.
+        #         if not data_changed:
+        #                 print('센서 데이터가 변경되지 않았습니다. 데이터를 다시 측정합니다.')
+        #                 self.after(5000, self.send_mqtt_data)  # 1분후 후에 send_mqtt_data 함수를 다시 호출합니다.
+        #                 return  # 함수를 여기서 종료하고 빠져나옵니다.
+        #         else:
+        #                 try:
+        #                         print(f"{current_time}: {sensor_data['values']}")
+        #                         self.client.publish('v1/devices/me/telemetry', json.dumps(sensor_data), 1)
+        #                         print('보냈다')
+        #                 except:
+        #                         print(f'데이터 전송 실패')
 
 
-        # else:
-        #         try:
-        #                 print(f"{current_time}: {sensor_data['values']}")
-        #                 #print("sensor_data : ",sensor_data)
-        #                 self.client.publish('v1/devices/me/telemetry', json.dumps(sensor_data), 1)
-        #                 print('보냈다')
-        #         except:
-        #                 #print('네트워크 연결 x')
-        #                 print(f'데이터 전송 실패')
+        else:
+                try:
+                        print(f"{current_time}: {sensor_data['values']}")
+                        #print("sensor_data : ",sensor_data)
+                        self.client.publish('v1/devices/me/telemetry', json.dumps(sensor_data), 1)
+                        print('보냈다')
+                except:
+                        #print('네트워크 연결 x')
+                        print(f'데이터 전송 실패')
                         
         self.pre_term = self.controller.send_term
         self.after(self.pre_term*60000, self.send_mqtt_data) 
