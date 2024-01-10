@@ -1004,7 +1004,19 @@ class Home(ttk.Frame):
                 #if self.controller.device_number == 21:
                 #        self.CO2 += 130          
 
-                #18번일경우 self.CO2 = self.controller.CO2 + 210
+
+                #5번일 경우 y = y=x+210
+                #if self.controller.device_number == 5:
+                #        self.CO2 += 210   
+
+                #17번일 경우 y = y=x+210
+                #if self.controller.device_number == 17:
+                #        self.CO2 += 210   
+
+                #35번일 경우 y = y=x+210
+                #if self.controller.device_number == 35:
+                #        self.CO2 += 210   
+
                 if self.CO2 < 0:
                         self.CO2_label.config(text='...')        
                 else:
@@ -1028,6 +1040,19 @@ class Home(ttk.Frame):
                 
                 #self.PM10 = ((self.controller.PM10  -PM25_1) - self.PM1)
                 self.PM10 = self.controller.PM10
+
+                #15번일 경우  y=(PM2.5-PM1.0)x0.554+5.1584
+                #if self.controller.device_number == 15:
+                #        self.Rn += ((self.PM25 - self.PM1) * 0.554) + 5.1584
+
+                #22번일 경우  y=(PM2.5-PM1.0)x0.612+5.2096
+                #if self.controller.device_number == 22:
+                #        self.Rn += ((self.PM25 - self.PM1) * 0.612) + 5.2096
+
+                #25번일 경우   y=(PM2.5-PM1.0)x0.5791+4.9836
+                #if self.controller.device_number == 25:
+                #        self.Rn += ((self.PM25 - self.PM1) * 0.5791) + 4.9836              
+
                 if self.PM10 < 0:
                         self.PM10_label.config(text='...')        
                 else:
@@ -1097,7 +1122,7 @@ class Home(ttk.Frame):
                         self.Rn += 170
 
                 #28번일 경우 y=x+130
-                if self.controller.device_number == 18:
+                if self.controller.device_number == 28:
                         self.Rn += 130
 
                 #31번일 경우 y=x+130
