@@ -1078,9 +1078,9 @@ class Home(ttk.Frame):
                 
                 #self.Rn = ((self.controller.Rn * 37) + 79)
                 self.Rn = self.controller.Rn
-                # 디바이스 번호가 특정번호인 경우 CO2 값을 조정합니다.
-                #if self.controller.device_number == 39:
-                #        self.Rn += 100
+                # 디바이스 번호가 특정번호인 경우 Rn 값을 조정합니다.
+                if self.controller.device_number == 26:
+                        self.Rn += 100
                                
                 #self.Rn = self.controller.Rn + 130
                 if self.Rn < 0:
