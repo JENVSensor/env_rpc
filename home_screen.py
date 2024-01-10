@@ -987,6 +987,8 @@ class Home(ttk.Frame):
                 # print('self.TVOC', end='')
                 # print(self.TVOC)
                 # print(type(self.TVOC))
+                
+
                 if self.TVOC < 0:
                         self.TVOC_label.config(text='...')
                         
@@ -997,12 +999,16 @@ class Home(ttk.Frame):
                         self.TVOC_label.config(text=self.TVOC)
 
                 self.CO2 = self.controller.CO2
+
+                #21번일 경우 y = 0.1542x + 550.25
+                #if self.controller.device_number == 21:
+                #        self.CO2 += 130          
+
                 #18번일경우 self.CO2 = self.controller.CO2 + 210
                 if self.CO2 < 0:
                         self.CO2_label.config(text='...')        
                 else:
                         self.CO2_label.config(text=self.CO2)
-                
 
                 # 새로운 계산식을 적용
                 #self.PM1 = (0.554  * original_PM1) + 5.1584
@@ -1079,9 +1085,25 @@ class Home(ttk.Frame):
                 #self.Rn = ((self.controller.Rn * 37) + 79)
                 self.Rn = self.controller.Rn
                 # 디바이스 번호가 특정번호인 경우 Rn 값을 조정합니다.
-                if self.controller.device_number == 26:
-                        self.Rn += 100
-                               
+                #if self.controller.device_number == 26:
+                #        self.Rn += 100
+
+                #11번일 경우 y=x+140
+                if self.controller.device_number == 11:
+                        self.Rn += 140
+
+                #18번일 경우 y=x+170
+                if self.controller.device_number == 18:
+                        self.Rn += 170
+
+                #28번일 경우 y=x+130
+                if self.controller.device_number == 18:
+                        self.Rn += 130
+
+                #31번일 경우 y=x+130
+                if self.controller.device_number == 31:
+                        self.Rn += 130
+
                 #self.Rn = self.controller.Rn + 130
                 if self.Rn < 0:
                         self.Rn_label.config(text='...')        
