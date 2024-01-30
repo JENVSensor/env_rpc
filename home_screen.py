@@ -1020,9 +1020,27 @@ class Home(ttk.Frame):
 
                 self.CO2 = self.controller.CO2
 
+                if self.controller.device_number == 4:
+                        self.CO2 += 210
+
+                #5번일 경우 y = y=x+210
+                if self.controller.device_number == 5:
+                        self.CO2 += 210
+
+                if self.controller.device_number == 13:
+                        self.CO2 += 210
+
+                #17번일 경우 y = y=x+210
+                if self.controller.device_number == 17:
+                        self.CO2 += 210   
+
                 if self.controller.device_number == 19:
                         self.CO2 = self.CO2 + 200
                 
+                #21번일 경우 y = 0.1542x + 550.25
+                if self.controller.device_number == 21:
+                        self.CO2 += 130
+
                 if self.controller.device_number == 22:
                         self.CO2 = self.CO2 + 205
 
@@ -1032,24 +1050,11 @@ class Home(ttk.Frame):
                 if self.controller.device_number == 32:
                         self.CO2 = self.CO2 + 200
 
-                #21번일 경우 y = 0.1542x + 550.25
-                if self.controller.device_number == 21:
-                        self.CO2 += 130
-
-                #5번일 경우 y = y=x+210
-                if self.controller.device_number == 5:
-                        self.CO2 += 210   
-
-                #17번일 경우 y = y=x+210
-                if self.controller.device_number == 17:
-                        self.CO2 += 210   
-
                 #35번일 경우 y = y=x+210
                 if self.controller.device_number == 35:
                         self.CO2 += 210
                 
-                if self.controller.device_number == 13:
-                        self.CO2 += 210
+                
 
                 if self.CO2 < 0:
                         self.CO2_label.config(text='...')        
@@ -1065,6 +1070,11 @@ class Home(ttk.Frame):
                 
                 #self.PM10 = ((self.controller.PM10  -PM25_1) - self.PM1)
                 self.PM10 = self.controller.PM10
+
+                if self.controller.device_number == 4:
+                        self.PM1 = self.PM1 * 0.75
+                        self.PM25 = (self.PM25 - self.PM1 )
+                        self.PM10 = self.PM10  - (self.PM25 * 2) / 5 - (self.PM25 / 2)
 
                 if self.controller.device_number == 5:
                         self.PM1 = self.PM1 * 0.75
