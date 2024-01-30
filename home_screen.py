@@ -987,26 +987,33 @@ class Home(ttk.Frame):
                 # print('self.TVOC', end='')
                 # print(self.TVOC)
                 # print(type(self.TVOC))
-                
-                #21번일 경우 y = 0.1542x + 550.25
-                if self.controller.device_number == 21:
-                        self.TVOC += ((0.1542 * self.TVOC) + 550.25)
-
-                if self.TVOC < 0:
-                        self.TVOC_label.config(text='...')
-                        
+                                        
                 #elif self.TVOC > 150:
                 #       calculated_value = 0.1542 * self.TVOC + 550.25
                 #       self.TVOC_label.config(text=calculated_value)
                 else:
                         self.TVOC_label.config(text=self.TVOC)
 
+                #21번일 경우 y = 0.1549x + 95.328
+                if self.controller.device_number == 23:
+                        self.TVOC = ((0.15429* self.TVOC) + 95.328)
+                
+                #23번일 경우 y = 0.1542x + 550.25
+                if self.controller.device_number == 21:
+                        self.TVOC += ((0.1542 * self.TVOC) + 550.25)
+
+                if self.TVOC < 0:
+                        self.TVOC_label.config(text='...')
 
                 self.CO2 = self.controller.CO2
 
+                #23번일 경우 y = 0.1542x + 550.25
+                if self.controller.device_number == 23:
+                        self.CO2 = self.CO2 + 200
+
                 #21번일 경우 y = 0.1542x + 550.25
                 if self.controller.device_number == 21:
-                        self.CO2 += 130          
+                        self.CO2 += 130
 
                 #5번일 경우 y = y=x+210
                 if self.controller.device_number == 5:
@@ -1043,6 +1050,12 @@ class Home(ttk.Frame):
                 #self.PM10 = ((self.controller.PM10  -PM25_1) - self.PM1)
                 self.PM10 = self.controller.PM10
 
+                #23번일 경우
+                if self.controller.device_number == 23:
+                        self.PM1 = self.PM1
+                        self.PM25 = self.PM25 - self.PM1
+                        self.PM10 = (self.PM25 * 2) / 7 - (self.PM25 / 2)
+
                 #15번일 경우  y=(PM2.5-PM1.0)x0.554+5.1584
                 if self.controller.device_number == 15:
                         self.PM10 += ((self.PM25 - self.PM1) * 0.554) + 5.1584
@@ -1067,6 +1080,11 @@ class Home(ttk.Frame):
                 
                 
                 self.CH2O = self.controller.CH2O
+
+                #23번일 경우
+                if self.controller.device_number == 23:
+                        self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
+
                 if self.CH2O < 0:
                         self.CH2O_label.config(text='...')        
                 else:
