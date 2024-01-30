@@ -989,22 +989,22 @@ class Home(ttk.Frame):
                 # print(type(self.TVOC))
                                         
                 if self.TVOC > 150:
-                      calculated_value = 0.1542 * self.TVOC + 550.25
+                      calculated_value = 0.1549 * self.TVOC + 95.328
                       self.TVOC_label.config(text=calculated_value)
                 else:
                         self.TVOC_label.config(text=self.TVOC)
 
-                #19번일 경우 y = 0.1549x + 95.328
-                if self.controller.device_number == 19:
-                        self.TVOC = ((0.15429* self.TVOC) + 95.328)
+                # #19번일 경우 y = 0.1549x + 95.328
+                # if self.controller.device_number == 19:
+                #         self.TVOC = ((0.15429* self.TVOC) + 95.328)
 
-                #21번일 경우 y = 0.1549x + 95.328
-                if self.controller.device_number == 23:
-                        self.TVOC = ((0.15429* self.TVOC) + 95.328)
+                # #21번일 경우 y = 0.1549x + 95.328
+                # if self.controller.device_number == 23:
+                #         self.TVOC = ((0.15429* self.TVOC) + 95.328)
                 
-                #23번일 경우 y = 0.1542x + 550.25
-                if self.controller.device_number == 21:
-                        self.TVOC += ((0.1542 * self.TVOC) + 550.25)
+                # #23번일 경우 y = 0.1542x + 550.25
+                # if self.controller.device_number == 21:
+                #         self.TVOC = ((0.1542 * self.TVOC) + 550.25)
 
                 if self.TVOC < 0:
                         self.TVOC_label.config(text='...')
