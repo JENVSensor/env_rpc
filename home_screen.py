@@ -1040,13 +1040,43 @@ class Home(ttk.Frame):
                         self.CO2_label.config(text=self.CO2)
 
                 # 새로운 계산식을 적용
-                self.PM1 = self.controller.PM1                                
-                self.PM25 = self.controller.PM25
+                #self.PM1 = (0.554  * original_PM1) + 5.1584
+                self.PM1 = self.controller.PM1
+                                
+                #PM25_1 = self.controller.PM25 - self.PM1  # PM2.5에서 PM1을 뺌
+                self.PM25 = self.controller.PM25                
+                
+                #self.PM10 = ((self.controller.PM10  -PM25_1) - self.PM1)
                 self.PM10 = self.controller.PM10
 
-                self.PM1 = self.PM1 * 0.8
+                #19번일 경우
+                if self.controller.device_number == 19:
+                        self.PM1 = self.PM1 * 0.8
                         self.PM25 = (self.PM25 - self.PM1)                        
                         self.PM10 = self.PM10  - (self.PM25 * 2) / 5 - (self.PM25 / 2)
+                        # self.PM10 = self.PM10  - (self.PM25 * 3)
+
+                #23번일 경우
+                if self.controller.device_number == 23:
+                        self.PM1 = self.PM1 * 0.8
+                        self.PM25 = (self.PM25 - self.PM1)                        
+                        self.PM10 = self.PM10  - (self.PM25 * 2) / 5 - (self.PM25 / 2)
+
+                #15번일 경우  y=(PM2.5-PM1.0)x0.554+5.1584
+                if self.controller.device_number == 15:
+                        self.PM10 += ((self.PM25 - self.PM1) * 0.554) + 5.1584
+
+                #22번일 경우  y=(PM2.5-PM1.0)x0.612+5.2096
+                if self.controller.device_number == 22:
+                        self.PM10 += ((self.PM25 - self.PM1) * 0.612) + 5.2096
+
+                #25번일 경우   y=(PM2.5-PM1.0)x0.5791+4.9836
+                if self.controller.device_number == 25:
+                        self.PM10 += ((self.PM25 - self.PM1) * 0.5791) + 4.9836
+
+                #32번일 경우  y=(pm10 - pm2.5) - pm1.0
+                if self.controller.device_number == 32:
+                        self.PM10 += ((self.PM10 - self.PM25) - self.PM1) 
                
                 if self.PM1 < 0:
                         self.PM1_label.config(text='...')        
@@ -1073,7 +1103,7 @@ class Home(ttk.Frame):
                 if self.CH2O < 0:
                         self.CH2O_label.config(text='...')        
                 else:
-                        self.CH2O_label.config(text=round(self.CH2O), 2)
+                        self.CH2O_label.config(text=self.CH2O)
                 
                 self.Sm = self.controller.Sm
                 if self.Sm < 0:
