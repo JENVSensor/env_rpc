@@ -994,6 +994,9 @@ class Home(ttk.Frame):
 
                 if self.controller.device_number == 22:
                         self.TVOC = 0.15429 * self.TVOC + 95.328
+                
+                if self.controller.device_number == 13:
+                        self.TVOC = 0.15429 * self.TVOC + 95.328
 
                 # if self.controller.device_number == 5:
                 #         self.TVOC = 0.15429 * self.TVOC + 95.328
@@ -1043,7 +1046,10 @@ class Home(ttk.Frame):
 
                 #35번일 경우 y = y=x+210
                 if self.controller.device_number == 35:
-                        self.CO2 += 210   
+                        self.CO2 += 210
+                
+                if self.controller.device_number == 13:
+                        self.CO2 += 210
 
                 if self.CO2 < 0:
                         self.CO2_label.config(text='...')        
@@ -1061,6 +1067,11 @@ class Home(ttk.Frame):
                 self.PM10 = self.controller.PM10
 
                 if self.controller.device_number == 5:
+                        self.PM1 = self.PM1 * 0.75
+                        self.PM25 = (self.PM25 - self.PM1 * 1.1)
+                        self.PM10 = self.PM10  - (self.PM25 * 2) / 5 - (self.PM25 / 2)
+                
+                if self.controller.device_number == 13:
                         self.PM1 = self.PM1 * 0.75
                         self.PM25 = (self.PM25 - self.PM1 * 1.1)
                         self.PM10 = self.PM10  - (self.PM25 * 2) / 5 - (self.PM25 / 2)
