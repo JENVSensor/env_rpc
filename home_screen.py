@@ -991,8 +991,8 @@ class Home(ttk.Frame):
                 #elif self.TVOC > 150:
                 #       calculated_value = 0.1542 * self.TVOC + 550.25
                 #       self.TVOC_label.config(text=calculated_value)
-                else:
-                        self.TVOC_label.config(text=self.TVOC)
+                # else:
+                #         self.TVOC_label.config(text=self.TVOC)
 
                 #21번일 경우 y = 0.1549x + 95.328
                 if self.controller.device_number == 23:
