@@ -1085,6 +1085,12 @@ class Home(ttk.Frame):
                         self.PM1 = self.PM1 * 0.9
                         self.PM25 = (self.PM25 - self.PM1 * 0.7)
                         self.PM10 = self.PM10  - (self.PM25 * 2) / 7 - (self.PM25 / 4)
+                
+                #15번일 경우  y=(PM2.5-PM1.0)x0.554+5.1584
+                if self.controller.device_number == 15:
+                        self.PM1 = self.PM1 * 0.8
+                        self.PM25 = (self.PM25 - self.PM1)                        
+                        self.PM10 = self.PM10  - (self.PM25 * 2) / 5 - (self.PM25 / 2)
 
                 if self.controller.device_number == 19:
                         self.PM1 = self.PM1 * 0.8
@@ -1096,30 +1102,29 @@ class Home(ttk.Frame):
                         self.PM1 = self.PM1 * 0.95
                         self.PM25 = (self.PM25)
                         self.PM10 = self.PM10
-
-                #23번일 경우
-                if self.controller.device_number == 23:
-                        self.PM1 = self.PM1 * 0.8
-                        self.PM25 = (self.PM25 - self.PM1)                        
-                        self.PM10 = self.PM10  - (self.PM25 * 2) / 5 - (self.PM25 / 2)
-
-                #15번일 경우  y=(PM2.5-PM1.0)x0.554+5.1584
-                if self.controller.device_number == 15:
-                        self.PM1 = self.PM1 * 0.8
-                        self.PM25 = (self.PM25 - self.PM1)                        
-                        self.PM10 = self.PM10  - (self.PM25 * 2) / 5 - (self.PM25 / 2)
-
+                
                 #22번일 경우  y=(PM2.5-PM1.0)x0.612+5.2096
                 if self.controller.device_number == 22:
                         self.PM1 = self.PM1 * 0.8
                         self.PM25 = (self.PM25 - self.PM1)                        
                         self.PM10 = self.PM10  - (self.PM25 * 2) / 5 - (self.PM25 / 2)
 
+                #23번일 경우
+                if self.controller.device_number == 23:
+                        self.PM1 = self.PM1 * 0.8
+                        self.PM25 = (self.PM25 - self.PM1)                        
+                        self.PM10 = self.PM10  - (self.PM25 * 2) / 5 - (self.PM25 / 2)                
+
                 #25번일 경우   y=(PM2.5-PM1.0)x0.5791+4.9836
                 if self.controller.device_number == 25:
                         self.PM1 = self.PM1 * 0.8
                         self.PM25 = (self.PM25 - self.PM1)                        
                         self.PM10 = self.PM10  - (self.PM25 * 2) / 5 - (self.PM25 / 2)
+
+                if self.controller.device_number == 30:
+                        self.PM1 = self.PM1
+                        self.PM25 = (self.PM25 - self.PM1)
+                        self.PM10 = self.PM10  - (self.PM25 * 2) / 7 - (self.PM25 / 5)
 
                 #32번일 경우  y=(pm10 - pm2.5) - pm1.0
                 if self.controller.device_number == 32:
