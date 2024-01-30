@@ -995,6 +995,9 @@ class Home(ttk.Frame):
                 if self.controller.device_number == 22:
                         self.TVOC = 0.15429 * self.TVOC + 95.328
 
+                if self.controller.device_number == 5:
+                        self.TVOC = 0.15429 * self.TVOC + 95.328
+
                 # #21번일 경우 y = 0.1549x + 95.328
                 # if self.controller.device_number == 23:
                 #         self.TVOC = ((0.15429* self.TVOC) + 95.328)
@@ -1014,7 +1017,6 @@ class Home(ttk.Frame):
 
                 self.CO2 = self.controller.CO2
 
-                #23번일 경우 y = 0.1542x + 550.25
                 if self.controller.device_number == 19:
                         self.CO2 = self.CO2 + 200
                 
@@ -1058,7 +1060,11 @@ class Home(ttk.Frame):
                 #self.PM10 = ((self.controller.PM10  -PM25_1) - self.PM1)
                 self.PM10 = self.controller.PM10
 
-                #19번일 경우
+                if self.controller.device_number == 5:
+                        self.PM1 = self.PM1
+                        self.PM25 = (self.PM25 - self.PM1)                        
+                        self.PM10 = self.PM10  - (self.PM25 * 2) / 5 - (self.PM25 / 2)
+
                 if self.controller.device_number == 19:
                         self.PM1 = self.PM1 * 0.8
                         self.PM25 = (self.PM25 - self.PM1)                        
