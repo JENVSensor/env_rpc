@@ -987,13 +987,7 @@ class Home(ttk.Frame):
                 # print('self.TVOC', end='')
                 # print(self.TVOC)
                 # print(type(self.TVOC))
-                                        
-                if self.TVOC > 150:
-                      calculated_value = 0.15429 * self.TVOC + 95.328
-                      self.TVOC_label.config(text=calculated_value)
-                else:
-                        self.TVOC_label.config(text=self.TVOC)
-
+                
                 #32번일 경우 y = 0.1549x + 95.328
                 if self.controller.device_number == 32:
                         self.TVOC = 0.15429 * self.TVOC + 95.328
@@ -1007,6 +1001,12 @@ class Home(ttk.Frame):
                 # if self.controller.device_number == 21:
                 #         self.TVOC = ((0.1542 * self.TVOC) + 550.25)
 
+                if self.TVOC > 150:
+                      calculated_value = 0.15429 * self.TVOC + 95.328
+                      self.TVOC_label.config(text=calculated_value)
+                else:
+                        self.TVOC_label.config(text=self.TVOC)
+                        
                 if self.TVOC < 0:
                         self.TVOC_label.config(text='...')
 
