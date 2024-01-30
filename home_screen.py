@@ -1103,7 +1103,7 @@ class Home(ttk.Frame):
                 if self.CH2O < 0:
                         self.CH2O_label.config(text='...')        
                 else:
-                        self.CH2O_label.config(text=self.CH2O)
+                        self.CH2O_label.config(text=round(self.CH2O, 2))
                 
                 self.Sm = self.controller.Sm
                 if self.Sm < 0:
