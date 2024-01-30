@@ -1085,9 +1085,9 @@ class Home(ttk.Frame):
 
                 #32번일 경우  y=(pm10 - pm2.5) - pm1.0
                 if self.controller.device_number == 32:
-                        self.PM1 = self.PM1 * 0.8
+                        self.PM1 = self.PM1
                         self.PM25 = (self.PM25 - self.PM1 * 0.8)                        
-                        self.PM10 = self.PM10  - (self.PM25 * 2) / 7 - (self.PM25 / 2)
+                        self.PM10 = self.PM10  - (self.PM25 * 2) / 7
                
                 if self.PM1 < 0:
                         self.PM1_label.config(text='...')        
