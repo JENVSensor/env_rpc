@@ -1073,7 +1073,7 @@ class Home(ttk.Frame):
                 
                 if self.controller.device_number == 13:
                         self.PM1 = self.PM1 * 0.9
-                        self.PM25 = (self.PM25 - self.PM1)
+                        self.PM25 = (self.PM25 - self.PM1 * 0.7)
                         self.PM10 = self.PM10  - (self.PM25 * 2) / 5 - (self.PM25 / 2)
 
                 if self.controller.device_number == 19:
