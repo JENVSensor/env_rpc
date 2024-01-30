@@ -995,8 +995,8 @@ class Home(ttk.Frame):
                 if self.controller.device_number == 22:
                         self.TVOC = 0.15429 * self.TVOC + 95.328
 
-                if self.controller.device_number == 5:
-                        self.TVOC = 0.15429 * self.TVOC + 95.328
+                # if self.controller.device_number == 5:
+                #         self.TVOC = 0.15429 * self.TVOC + 95.328
 
                 # #21번일 경우 y = 0.1549x + 95.328
                 # if self.controller.device_number == 23:
