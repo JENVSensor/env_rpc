@@ -1160,30 +1160,35 @@ class Home(ttk.Frame):
                 
                 #CH20
                 self.CH2O = self.controller.CH2O
-                
-                if self.controller.device_number == 4:
+                if self.CH2O < 22:
                         self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
+                else:
+                       self.CH2O = self.CH2O
                 
-                if self.controller.device_number == 5:
-                        self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
+                # if self.controller.device_number == 4:
 
-                if self.controller.device_number == 12:
-                        self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
+                #         self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
                 
-                if self.controller.device_number == 13:
-                        self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
-                
-                if self.controller.device_number == 22:
-                        self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
+                # if self.controller.device_number == 5:
+                #         self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
 
-                if self.controller.device_number == 23:
-                        self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
+                # if self.controller.device_number == 12:
+                #         self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
                 
-                if self.controller.device_number == 30:
-                        self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
+                # if self.controller.device_number == 13:
+                #         self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
+                
+                # if self.controller.device_number == 22:
+                #         self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
 
-                if self.controller.device_number == 32:
-                        self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
+                # if self.controller.device_number == 23:
+                #         self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
+                
+                # if self.controller.device_number == 30:
+                #         self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
+
+                # if self.controller.device_number == 32:
+                #         self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
 
                 if self.CH2O < 0:
                         self.CH2O_label.config(text='...')        
