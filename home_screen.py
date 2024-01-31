@@ -1011,7 +1011,7 @@ class Home(ttk.Frame):
 
                 if self.TVOC > 150:
                       calculated_value = self.TVOC
-                      self.TVOC_label.config(text=calculated_value)
+                      self.TVOC_label.config(text=round(calculated_value, 2))
                 else:
                         self.TVOC_label.config(text=round(self.TVOC, 2))
 
