@@ -1050,6 +1050,9 @@ class Home(ttk.Frame):
                 if self.controller.device_number == 23:
                         self.CO2 = self.CO2 + 200
                 
+                if self.controller.device_number == 30:
+                        self.CO2 = self.CO2 + 200
+
                 if self.controller.device_number == 32:
                         self.CO2 = self.CO2 + 200
 
@@ -1155,13 +1158,30 @@ class Home(ttk.Frame):
                 else:
                         self.PM10_label.config(text=int(self.PM10))
                 
-                
+                #CH20
                 self.CH2O = self.controller.CH2O
+                
+                if self.controller.device_number == 4:
+                        self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
+                
+                if self.controller.device_number == 5:
+                        self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
 
-                #23번일 경우
+                if self.controller.device_number == 12:
+                        self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
+                
+                if self.controller.device_number == 13:
+                        self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
+                
+                if self.controller.device_number == 22:
+                        self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
+
                 if self.controller.device_number == 23:
                         self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
                 
+                if self.controller.device_number == 30:
+                        self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
+
                 if self.controller.device_number == 32:
                         self.CH2O = (self.CH2O * 0.7626) * -1 + 22.794
 
