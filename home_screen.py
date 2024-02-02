@@ -1113,11 +1113,11 @@ class Home(ttk.Frame):
                         self.PM25 = (self.PM25 - self.PM1)                        
                         self.PM10 = self.PM10  - (self.PM25 * 2) / 5 - (self.PM25 / 2)
                         # self.PM10 = self.PM10  - (self.PM25 * 3)
-
-                if self.controller.device_number == 22:
-                        self.PM1 = self.PM1 * 0.95
-                        self.PM25 = (self.PM25)
-                        self.PM10 = self.PM10
+                
+                # if self.controller.device_number == 22:
+                #         self.PM1 = self.PM1 * 0.95
+                #         self.PM25 = (self.PM25)
+                #         self.PM10 = self.PM10
                 
                 #22번일 경우  y=(PM2.5-PM1.0)x0.612+5.2096
                 if self.controller.device_number == 22:
@@ -1134,7 +1134,7 @@ class Home(ttk.Frame):
                 #25번일 경우   y=(PM2.5-PM1.0)x0.5791+4.9836
                 if self.controller.device_number == 25:
                         self.PM1 = self.PM1 *0.75
-                        self.PM25 = (self.PM25 - self.PM1 * 1.2)                        
+                        self.PM25 = (self.PM25 - self.PM1 * 1.4)                        
                         self.PM10 = self.PM10  - (self.PM25 * 2.7) / 5 - (self.PM25 / 2)
 
                 if self.controller.device_number == 28:
