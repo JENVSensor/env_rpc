@@ -1097,6 +1097,11 @@ class Home(ttk.Frame):
                         self.PM25 = (self.PM25 - self.PM1 * 0.7)
                         self.PM10 = self.PM10  - (self.PM25 * 2) / 7 - (self.PM25 / 4)
                 
+                if self.controller.device_number == 14:
+                        self.PM1 = self.PM1 * 0.9
+                        self.PM25 = (self.PM25 - self.PM1 * 0.7)
+                        self.PM10 = self.PM10  - (self.PM25 * 2) / 7 - (self.PM25 / 4)
+
                 #15번일 경우  y=(PM2.5-PM1.0)x0.554+5.1584
                 if self.controller.device_number == 15:
                         self.PM1 = self.PM1 * 0.7
