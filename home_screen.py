@@ -1177,6 +1177,10 @@ class Home(ttk.Frame):
                         self.PM1 = self.PM1
                         self.PM25 = (self.PM25 - self.PM1 * 0.5)
                         self.PM10 = self.PM10  - (self.PM25 * 2) / 7 - (self.PM25 / 5)
+
+                if self.controller.device_number == 33:
+                        self.PM25 = (self.PM25 - self.PM1 * 0.4 )                     
+                        self.PM10 = self.PM10  - (self.PM25 * 0.45)                              
                
                 if self.PM1 < 0:
                         self.PM1_label.config(text='...')        
