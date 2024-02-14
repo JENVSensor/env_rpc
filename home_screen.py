@@ -989,14 +989,14 @@ class Home(ttk.Frame):
                 # print(type(self.TVOC))
                 
                 #32번일 경우 y = 0.1549x + 95.328
-                if self.controller.device_number == 32:
-                        self.TVOC = 0.15429 * self.TVOC + 95.328
+                # if self.controller.device_number == 32:
+                #         self.TVOC = 0.15429 * self.TVOC + 95.328
 
-                if self.controller.device_number == 22:
-                        self.TVOC = 0.15429 * self.TVOC + 95.328
+                # if self.controller.device_number == 22:
+                #         self.TVOC = 0.15429 * self.TVOC + 95.328
                 
-                if self.controller.device_number == 13:
-                        self.TVOC = 0.15429 * self.TVOC + 95.328
+                # if self.controller.device_number == 13:
+                #         self.TVOC = 0.15429 * self.TVOC + 95.328
 
                 # if self.controller.device_number == 5:
                 #         self.TVOC = 0.15429 * self.TVOC + 95.328
@@ -1020,45 +1020,45 @@ class Home(ttk.Frame):
 
                 self.CO2 = self.controller.CO2
 
-                if self.controller.device_number == 4:
-                        self.CO2 += 210
+                # if self.controller.device_number == 4:
+                #         self.CO2 += 210
 
-                #5번일 경우 y = y=x+210
-                if self.controller.device_number == 5:
-                        self.CO2 += 210
+                # #5번일 경우 y = y=x+210
+                # if self.controller.device_number == 5:
+                #         self.CO2 += 210
 
-                if self.controller.device_number == 12:
-                        self.CO2 += 210
+                # if self.controller.device_number == 12:
+                #         self.CO2 += 210
 
-                if self.controller.device_number == 13:
-                        self.CO2 += 210
+                # if self.controller.device_number == 13:
+                #         self.CO2 += 210
 
-                #17번일 경우 y = y=x+210
-                if self.controller.device_number == 17:
-                        self.CO2 += 210   
+                # #17번일 경우 y = y=x+210
+                # if self.controller.device_number == 17:
+                #         self.CO2 += 210   
 
-                if self.controller.device_number == 19:
-                        self.CO2 = self.CO2 + 200
+                # if self.controller.device_number == 19:
+                #         self.CO2 = self.CO2 + 200
                 
-                #21번일 경우 y = 0.1542x + 550.25
-                if self.controller.device_number == 21:
-                        self.CO2 += 130
+                # #21번일 경우 y = 0.1542x + 550.25
+                # if self.controller.device_number == 21:
+                #         self.CO2 += 130
 
-                if self.controller.device_number == 22:
-                        self.CO2 = self.CO2 + 205
+                # if self.controller.device_number == 22:
+                #         self.CO2 = self.CO2 + 205
 
-                if self.controller.device_number == 23:
-                        self.CO2 = self.CO2 + 200
+                # if self.controller.device_number == 23:
+                #         self.CO2 = self.CO2 + 200
                 
-                if self.controller.device_number == 30:
-                        self.CO2 = self.CO2 + 200
+                # if self.controller.device_number == 30:
+                #         self.CO2 = self.CO2 + 200
 
-                if self.controller.device_number == 32:
-                        self.CO2 = self.CO2 + 200
+                # if self.controller.device_number == 32:
+                #         self.CO2 = self.CO2 + 200
 
-                #35번일 경우 y = y=x+210
-                if self.controller.device_number == 35:
-                        self.CO2 += 210
+                # #35번일 경우 y = y=x+210
+                # if self.controller.device_number == 35:
+                #         self.CO2 += 210
                 
                 
 
@@ -1087,135 +1087,135 @@ class Home(ttk.Frame):
                 #         self.PM25 = (self.PM25 - self.PM1 * 1.67)
                 #         self.PM10 = self.PM10  - (self.PM25 * 1.39)
 
-                if self.controller.device_number == 2:
-                        self.PM1 = self.PM1 * 0.85
-                        self.PM25 = (self.PM25 - self.PM1 * 0.48)
-                        self.PM10 = self.PM10  - (self.PM25 * 0.52)
+                # if self.controller.device_number == 2:
+                #         self.PM1 = self.PM1 * 0.85
+                #         self.PM25 = (self.PM25 - self.PM1 * 0.48)
+                #         self.PM10 = self.PM10  - (self.PM25 * 0.52)
 
-                if self.controller.device_number == 3:
-                        self.PM1 = self.PM1 * 0.64
-                        self.PM25 = (self.PM25 - self.PM1 * 1.61)
-                        self.PM10 = self.PM10  - (self.PM25 * 1.35)
+                # if self.controller.device_number == 3:
+                #         self.PM1 = self.PM1 * 0.64
+                #         self.PM25 = (self.PM25 - self.PM1 * 1.61)
+                #         self.PM10 = self.PM10  - (self.PM25 * 1.35)
 
-                if self.controller.device_number == 4:
-                        self.PM1 = self.PM1 * 0.71
-                        self.PM25 = (self.PM25 - self.PM1 * 1.26)
-                        self.PM10 = self.PM10  - (self.PM25 * 1.02)
+                # if self.controller.device_number == 4:
+                #         self.PM1 = self.PM1 * 0.71
+                #         self.PM25 = (self.PM25 - self.PM1 * 1.26)
+                #         self.PM10 = self.PM10  - (self.PM25 * 1.02)
 
-                if self.controller.device_number == 5:
-                        self.PM1 = self.PM1 * 0.75
-                        self.PM25 = (self.PM25 - self.PM1 * 1.1)
-                        self.PM10 = self.PM10  - (self.PM25 * 2) / 5 - (self.PM25 / 2)
+                # if self.controller.device_number == 5:
+                #         self.PM1 = self.PM1 * 0.75
+                #         self.PM25 = (self.PM25 - self.PM1 * 1.1)
+                #         self.PM10 = self.PM10  - (self.PM25 * 2) / 5 - (self.PM25 / 2)
 
-                if self.controller.device_number == 7:
-                        self.PM1 = self.PM1 * 0.61
-                        self.PM25 = (self.PM25 - self.PM1 * 1.7)
-                        self.PM10 = self.PM10  - (self.PM25 * 1.39)
+                # if self.controller.device_number == 7:
+                #         self.PM1 = self.PM1 * 0.61
+                #         self.PM25 = (self.PM25 - self.PM1 * 1.7)
+                #         self.PM10 = self.PM10  - (self.PM25 * 1.39)
 
-                if self.controller.device_number == 9:
-                        self.PM1 = self.PM1 * 0.71
-                        self.PM25 = (self.PM25 - self.PM1 * 1.16)
-                        self.PM10 = self.PM10  - (self.PM25 * 0.86)
+                # if self.controller.device_number == 9:
+                #         self.PM1 = self.PM1 * 0.71
+                #         self.PM25 = (self.PM25 - self.PM1 * 1.16)
+                #         self.PM10 = self.PM10  - (self.PM25 * 0.86)
 
-                if self.controller.device_number == 10:
-                        self.PM1 = self.PM1 *0.65
-                        self.PM25 = (self.PM25 - self.PM1 * 1.46)                        
-                        self.PM10 = self.PM10  - (self.PM25 * 1.16)                            
+                # if self.controller.device_number == 10:
+                #         self.PM1 = self.PM1 *0.65
+                #         self.PM25 = (self.PM25 - self.PM1 * 1.46)                        
+                #         self.PM10 = self.PM10  - (self.PM25 * 1.16)                            
 
-                if self.controller.device_number == 12:
-                        self.PM1 = self.PM1 * 0.68
-                        self.PM25 = (self.PM25 - self.PM1 * 1.45)
-                        self.PM10 = self.PM10  - (self.PM25 * 1.2)
+                # if self.controller.device_number == 12:
+                #         self.PM1 = self.PM1 * 0.68
+                #         self.PM25 = (self.PM25 - self.PM1 * 1.45)
+                #         self.PM10 = self.PM10  - (self.PM25 * 1.2)
 
-                if self.controller.device_number == 13:
-                        self.PM1 = self.PM1 * 0.75
-                        self.PM25 = (self.PM25 - self.PM1 )
-                        self.PM10 = self.PM10  - (self.PM25 * 0.87) 
+                # if self.controller.device_number == 13:
+                #         self.PM1 = self.PM1 * 0.75
+                #         self.PM25 = (self.PM25 - self.PM1 )
+                #         self.PM10 = self.PM10  - (self.PM25 * 0.87) 
                 
-                if self.controller.device_number == 14:
-                        self.PM1 = self.PM1 * 0.7
-                        self.PM25 = (self.PM25 - self.PM1 * 1.45)
-                        self.PM10 = self.PM10  - (self.PM25 * 2.7) / 2
+                # if self.controller.device_number == 14:
+                #         self.PM1 = self.PM1 * 0.7
+                #         self.PM25 = (self.PM25 - self.PM1 * 1.45)
+                #         self.PM10 = self.PM10  - (self.PM25 * 2.7) / 2
 
-                #15번일 경우  y=(PM2.5-PM1.0)x0.554+5.1584
-                if self.controller.device_number == 15:
-                        self.PM1 = self.PM1 * 0.65
-                        self.PM25 = (self.PM25 - self.PM1 * 1.65)                        
-                        self.PM10 = self.PM10  - (self.PM25 * 4.4) / 3
+                # #15번일 경우  y=(PM2.5-PM1.0)x0.554+5.1584
+                # if self.controller.device_number == 15:
+                #         self.PM1 = self.PM1 * 0.65
+                #         self.PM25 = (self.PM25 - self.PM1 * 1.65)                        
+                #         self.PM10 = self.PM10  - (self.PM25 * 4.4) / 3
 
-                if self.controller.device_number == 16:
-                        self.PM1 = self.PM1 * 0.64
-                        self.PM25 = (self.PM25 - self.PM1 * 1.52)                        
-                        self.PM10 = self.PM10  - (self.PM25 * 1.23)   
+                # if self.controller.device_number == 16:
+                #         self.PM1 = self.PM1 * 0.64
+                #         self.PM25 = (self.PM25 - self.PM1 * 1.52)                        
+                #         self.PM10 = self.PM10  - (self.PM25 * 1.23)   
 
-                if self.controller.device_number == 19:
-                        self.PM25 = (self.PM25 - self.PM1 *0.73)                        
-                        self.PM10 = self.PM10  - (self.PM25 * 0.69)
+                # if self.controller.device_number == 19:
+                #         self.PM25 = (self.PM25 - self.PM1 *0.73)                        
+                #         self.PM10 = self.PM10  - (self.PM25 * 0.69)
                 
-                if self.controller.device_number == 20:
-                        self.PM1 = self.PM1 * 0.65
-                        self.PM25 = (self.PM25 - self.PM1 * 1.63)                        
-                        self.PM10 = self.PM10  - (self.PM25 * 1.33)
+                # if self.controller.device_number == 20:
+                #         self.PM1 = self.PM1 * 0.65
+                #         self.PM25 = (self.PM25 - self.PM1 * 1.63)                        
+                #         self.PM10 = self.PM10  - (self.PM25 * 1.33)
 
-                #22번일 경우  y=(PM2.5-PM1.0)x0.612+5.2096
-                if self.controller.device_number == 22:
-                        self.PM1 = self.PM1 * 0.79
-                        self.PM25 = (self.PM25 - self.PM1)                        
-                        self.PM10 = self.PM10  - (self.PM25 * 2) / 5 - (self.PM25 / 2)
+                # #22번일 경우  y=(PM2.5-PM1.0)x0.612+5.2096
+                # if self.controller.device_number == 22:
+                #         self.PM1 = self.PM1 * 0.79
+                #         self.PM25 = (self.PM25 - self.PM1)                        
+                #         self.PM10 = self.PM10  - (self.PM25 * 2) / 5 - (self.PM25 / 2)
 
-                # 23번일 경우
-                if self.controller.device_number == 23:
-                        self.PM1 = self.PM1 * 0.8
-                        self.PM25 = (self.PM25 - self.PM1 )                     
-                        self.PM10 = self.PM10  - (self.PM25 * 0.91)           
+                # # 23번일 경우
+                # if self.controller.device_number == 23:
+                #         self.PM1 = self.PM1 * 0.8
+                #         self.PM25 = (self.PM25 - self.PM1 )                     
+                #         self.PM10 = self.PM10  - (self.PM25 * 0.91)           
 
-                if self.controller.device_number == 24:
-                        self.PM1 = self.PM1 * 0.78
-                        self.PM25 = (self.PM25 - self.PM1 * 1.17)                     
-                        self.PM10 = self.PM10  - (self.PM25 * 1.1)           
-
-                #25번일 경우   y=(PM2.5-PM1.0)x0.5791+4.9836
-                if self.controller.device_number == 25:
-                        self.PM1 = self.PM1 *0.7
-                        self.PM25 = (self.PM25 - self.PM1 * 1.35)                        
-                        self.PM10 = self.PM10  - (self.PM25 * 1.25)
-
-                if self.controller.device_number == 26:
-                        self.PM1 = self.PM1 *0.64
-                        self.PM25 = (self.PM25 - self.PM1 * 1.46)                        
-                        self.PM10 = self.PM10  - (self.PM25 * 1.06)     
-
-                if self.controller.device_number == 27:
-                        self.PM25 = (self.PM25 - self.PM1 * 0.48)                        
-                        self.PM10 = self.PM10  - (self.PM25 * 0.5)                                               
-
-                if self.controller.device_number == 28:
-                        self.PM1 = self.PM1 *0.65
-                        self.PM25 = (self.PM25 - self.PM1 * 1.6)                        
-                        self.PM10 = self.PM10  - (self.PM25 * 4) / 3
-                
-                if self.controller.device_number == 29:
-                        self.PM25 = (self.PM25 - self.PM1 * 0.6)                        
-                        self.PM10 = self.PM10  - (self.PM25 * 0.66)
-
-                if self.controller.device_number == 30:
-                        self.PM1 = self.PM1 * 0.61
-                        self.PM25 = (self.PM25 - self.PM1 * 1.72)
-                        self.PM10 = self.PM10  - (self.PM25 * 1.39)
-
-                #32번일 경우  y=(pm10 - pm2.5) - pm1.0
-                if self.controller.device_number == 32:
+                # if self.controller.device_number == 24:
                 #         self.PM1 = self.PM1 * 0.78
-                        self.PM25 = (self.PM25 - self.PM1 * 0.32)
-                        self.PM10 = self.PM10  - (self.PM25 * 0.36)
+                #         self.PM25 = (self.PM25 - self.PM1 * 1.17)                     
+                #         self.PM10 = self.PM10  - (self.PM25 * 1.1)           
 
-                if self.controller.device_number == 33:
-                        self.PM25 = (self.PM25 - self.PM1 * 0.4 )                     
-                        self.PM10 = self.PM10  - (self.PM25 * 0.42)            
+                # #25번일 경우   y=(PM2.5-PM1.0)x0.5791+4.9836
+                # if self.controller.device_number == 25:
+                #         self.PM1 = self.PM1 *0.7
+                #         self.PM25 = (self.PM25 - self.PM1 * 1.35)                        
+                #         self.PM10 = self.PM10  - (self.PM25 * 1.25)
 
-                if self.controller.device_number == 34:
-                        self.PM25 = (self.PM25 - self.PM1 * 0.59 )                     
-                        self.PM10 = self.PM10  - (self.PM25 * 0.59)                                                 
+                # if self.controller.device_number == 26:
+                #         self.PM1 = self.PM1 *0.64
+                #         self.PM25 = (self.PM25 - self.PM1 * 1.46)                        
+                #         self.PM10 = self.PM10  - (self.PM25 * 1.06)     
+
+                # if self.controller.device_number == 27:
+                #         self.PM25 = (self.PM25 - self.PM1 * 0.48)                        
+                #         self.PM10 = self.PM10  - (self.PM25 * 0.5)                                               
+
+                # if self.controller.device_number == 28:
+                #         self.PM1 = self.PM1 *0.65
+                #         self.PM25 = (self.PM25 - self.PM1 * 1.6)                        
+                #         self.PM10 = self.PM10  - (self.PM25 * 4) / 3
+                
+                # if self.controller.device_number == 29:
+                #         self.PM25 = (self.PM25 - self.PM1 * 0.6)                        
+                #         self.PM10 = self.PM10  - (self.PM25 * 0.66)
+
+                # if self.controller.device_number == 30:
+                #         self.PM1 = self.PM1 * 0.61
+                #         self.PM25 = (self.PM25 - self.PM1 * 1.72)
+                #         self.PM10 = self.PM10  - (self.PM25 * 1.39)
+
+                # #32번일 경우  y=(pm10 - pm2.5) - pm1.0
+                # if self.controller.device_number == 32:
+                # #         self.PM1 = self.PM1 * 0.78
+                #         self.PM25 = (self.PM25 - self.PM1 * 0.32)
+                #         self.PM10 = self.PM10  - (self.PM25 * 0.36)
+
+                # if self.controller.device_number == 33:
+                #         self.PM25 = (self.PM25 - self.PM1 * 0.4 )                     
+                #         self.PM10 = self.PM10  - (self.PM25 * 0.42)            
+
+                # if self.controller.device_number == 34:
+                #         self.PM25 = (self.PM25 - self.PM1 * 0.59 )                     
+                #         self.PM10 = self.PM10  - (self.PM25 * 0.59)                                                 
                
                 if self.PM1 < 0:
                         self.PM1_label.config(text='...')        
