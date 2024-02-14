@@ -1318,20 +1318,20 @@ class Home(ttk.Frame):
                 #        self.Rn += 100
 
                 #11번일 경우 y=x+140
-                if self.controller.device_number == 11:
-                        self.Rn += 140
+                # if self.controller.device_number == 11:
+                #         self.Rn += 140
 
                 #18번일 경우 y=x+170
-                if self.controller.device_number == 18:
-                        self.Rn += 170
+                # if self.controller.device_number == 18:
+                #         self.Rn += 170
 
                 #28번일 경우 y=x+130
-                if self.controller.device_number == 28:
-                        self.Rn += 130
+                # if self.controller.device_number == 28:
+                #         self.Rn += 130
 
                 #31번일 경우 y=x+130
-                if self.controller.device_number == 31:
-                        self.Rn += 130
+                # if self.controller.device_number == 31:
+                #         self.Rn += 130
 
                 #self.Rn = self.controller.Rn + 130
                 if self.Rn < 0:
