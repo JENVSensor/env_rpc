@@ -1476,7 +1476,8 @@ class Home(ttk.Frame):
         elif level == 3:
                 label.config(fg='brown')    
         elif level == 4:
-                label.config(fg='red')
+                # label.config(fg='red')
+               label.config(fg='yellow')
         else:
                 pass
     
