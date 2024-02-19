@@ -984,6 +984,7 @@ class Home(ttk.Frame):
                         self.humidity_label.config(text=humidity_2f)
                 # 밑에 마저 해야한다.
                 self.TVOC = self.controller.TVOC
+                self.TVOC = self.TVOC * 1.2
                 # print('self.TVOC', end='')
                 # print(self.TVOC)
                 # print(type(self.TVOC))
