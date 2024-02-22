@@ -1312,6 +1312,12 @@ class Home(ttk.Frame):
                 else:
                         self.Sound_label.config(text=self.SOUND)
                 
+                if self.controller.device_number == 11:
+                       self.SOUND = self.SOUND -19
+                
+                if self.controller.device_number == 34:
+                       self.SOUND = self.SOUND -19.7
+                
                 #self.Rn = ((self.controller.Rn * 37) + 79)
                 self.Rn = self.controller.Rn
                 # 디바이스 번호가 특정번호인 경우 Rn 값을 조정합니다.
